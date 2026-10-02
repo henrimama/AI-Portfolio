@@ -60,9 +60,12 @@ The home page works like a small browser for the work. From top to bottom:
 - Nothing changes on its own. The page only changes when a button is pressed.
 
 ## About page
-- One column, on grid columns 1 to 7 on desktop and the full width on tablet and phone.
-- Portrait at the top: four columns wide on desktop, three on tablet, full width on phone. Shown whole at its own proportions, in black and white.
-- 40px beneath it, a panel of entries in this order: Bio, Education, From, Software, Honors, Resume. Each entry is a label with its text beneath, and entries are 24px apart.
+- Two columns. Portrait on the left: grid columns 1 to 4 on desktop, 1 to 3 on tablet. Shown whole at its own proportions, in black and white.
+- Text on the right, level with the top of the portrait: grid columns 6 to 12 on desktop, 4 to 8 on tablet.
+- On screens 1200px and wider, the portrait is as tall as the text beside it: its top is level with "Bio" and its bottom is level with "Download Resume". It keeps its own proportions, so its width follows from that height and it no longer ends on a grid column; it still starts on column 1 and never runs past column 5. This is the one image on the site that is sized by its neighbour instead of by the grid.
+- On narrower screens the text is too tall for the portrait to match it without covering it, so the portrait keeps its column width and the two only share a top edge.
+- On phone they stack: portrait at full width, then the text 40px beneath it.
+- The text is a panel of entries in this order: Bio, Education, From, Software, Honors, Resume. Each entry is a label with its text beneath, and entries are 24px apart.
 - Labels: Body size (18px desktop, 17px phone), weight 600, Ink.
 - Text: 15px, weight 400, Graphite, line height 1.55, lines no longer than about 68 characters.
 - The resume link sits in the panel in the same 15px Graphite text, weight 500, underlined. The underline is removed on hover. It downloads the file and opens it in a new tab.

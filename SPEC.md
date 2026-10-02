@@ -60,7 +60,7 @@ about.html
   - Software: Revit, AutoCAD, Rhino, Grasshopper, Illustrator, Photoshop, InDesign, SketchUp, Lumion.
   - Honors: President's Scholarship; President's Architecture Scholarship; Provost's Honor Roll.
   - Bio, first in the panel: "I'm a fourth-year Bachelor of Architecture student at the University of Miami, minoring in Management. I treat every project as both a design problem and a business problem: a building has to work for the people who use it and for the people who pay for it. I'm drawn to sustainable, community-scale design and am pursuing work at the intersection of architecture and real estate development."
-  - Portrait: images/about/headshot.jpg, above the Bio, shown in black and white. Alt text: "Henri Maman headshot".
+  - Portrait: images/about/headshot.jpg, to the left of the text (above it on phone), shown in black and white. Alt text: "Henri Maman headshot".
   - Resume: a "Download Resume" link to images/about/henri-maman-resume.pdf. It downloads the file and opens it in a new tab.
 
 contact.html
