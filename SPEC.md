@@ -33,7 +33,7 @@ index.html (home)
   - Rain Field: "A modular campus canopy that provides shade and collects rainwater without any excavation. Its aluminum frame and fabric roof drain into concrete base blocks that store the water for campus irrigation."
   - Ramp & Reel Fishing Market: "Ramp & Reel is a fish market on the Miami River that turns an industrial edge into an active public waterfront. Continuous ramps make the entire building accessible and guide visitors through the market toward the river."
   - Mercy University: "As a Project Design Intern at Clarke Caton Hintz, I produced demolition plans, proposed floor plans, and reflected ceiling plans for Mercy University. I also built the project's SketchUp model and helped render it in Lumion."
-  - Deering Estate: "A small academic complex at the Deering Estate that treats thresholds as architecture, linking classrooms, offices, a lab, a lecture hall, and a gallery through breezeways, patios, and shaded outdoor rooms. Operable louvers, deep overhangs, and exposed timber structure control light and airflow while keeping the buildings open to the landscape." Beneath it, a project info line: "University of Miami, Cardona Studio. Partner: Myzel Hatchette. Miami, FL."
+  - Deering Estate: "A small academic complex at the Deering Estate that treats thresholds as architecture, linking classrooms, a lab, a lecture hall, and a gallery through breezeways and shaded patios. Louvers, deep overhangs, and exposed timber control light and airflow while keeping the buildings open to the landscape." No info line beneath it on the home page.
   - Built Work: [ADD: short description]. Until then it shows its name only.
 
 projects.html

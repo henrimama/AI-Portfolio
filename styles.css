@@ -313,18 +313,6 @@ button {
   color: var(--graphite);
 }
 
-/* Project info line under the description: course or studio, partner, place.
-   Caption type, like the course line on the project pages. */
-.icon__info {
-  display: block;
-  max-width: 68ch;
-  margin-top: 8px;
-  font-size: 15px;
-  font-weight: 500;
-  line-height: 1.4;
-  color: var(--graphite);
-}
-
 .icon__link:hover .icon__box,
 .icon__link:focus-visible .icon__box,
 .icon__link:active .icon__box {
