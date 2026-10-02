@@ -53,12 +53,12 @@ One family, free from Google Fonts: Inter, weights 400, 500 and 600. Contemporar
 The home page works like a small browser for the work. From top to bottom:
 - "Henri Maman" at Display size with "Portfolio" beneath it, on the left edge of the grid, 120px below the top bar (64px on phone).
 - Toolbar: four filter buttons on the left: All, Studio Work, Professional Work, Built Work. Beneath them, a count in caption type, for example "3 of 5 projects: Studio Work".
-- The five project icons in a single vertical column, stacked one under the other on the left edge of the grid, on desktop and phone alike. Each icon is two columns wide. The white space between them is generous and even: 120px between one project and the next on desktop, 64px on phone.
+- The five project icons in a single vertical column, stacked one under the other and centred on the page, on desktop and phone alike. Each icon is four columns wide (grid columns 5 to 8 on desktop, 3 to 6 on tablet, the full width on phone). The white space between them is generous and even: 120px between one project and the next on desktop, 64px on phone.
 - Each icon carries the project's name and a short description. The name is Heading 3 size, weight 500, Ink; the description is 15px, Graphite, line height 1.55, lines no longer than about 68 characters.
-  - With a mouse: they are hidden at rest and appear on hover or keyboard focus, to the right of the icon and level with its top (grid columns 3 to 8), fading in over 200ms.
-  - On phones, and on any touch screen with no hover: they are always visible. On phone they sit below the icon, 16px beneath it; the 64px of white space then runs from the end of the description to the next icon.
+  - With a mouse: they are hidden at rest. On hover or keyboard focus anywhere along the project's row, the icon glides from the centre to the left edge of the grid (columns 1 to 4), keeping its size, and the name and description fade in to its right, level with its top (grid columns 5 to 10 on desktop, 5 to 8 on tablet). When the pointer leaves, the icon glides back to the centre and the text fades out.
+  - On phones, and on any touch screen with no hover: the icon stays centred and the name and description are always visible below it, 16px beneath it; the white space between projects then runs from the end of the description to the next icon.
   - A project with no description yet shows its name only.
-- Clicking a project opens it in place. Its icon, name and description stay where they are (the name and description now always showing), and a viewer opens beneath them across all twelve grid columns, pushing the projects below it down.
+- Clicking a project opens it in place. While it is open its icon stays at the left with the name and description showing beside it, and a viewer opens beneath them across all twelve grid columns, pushing the projects below it down.
   - The viewer is one continuous strip: the images sit side by side, all at the same height (a little over half the screen height), each at its own proportions and never cropped, one gutter apart.
   - Elevations and sections are the exception to the shared height. They are never long panels. Each is scaled down, whole and at its own proportions, to the full visible width of the strip, and they are stacked in pairs, one above the other: North Elevation above South Elevation; East Elevation above West Elevation; Long Section above Short Section. Each pair takes one screen-width of the strip. The two drawings in a pair are 16px apart (measured from the first drawing's caption to the second drawing); pairs are 40px apart on desktop and 32px on phone, slightly more than the gutter between other images. If a project has only one drawing of a pair, it sits alone at the same full width.
   - Order within the strip: drawings and renders first, photos of physical models last. A model photo has its title under it and no description text box.
@@ -98,7 +98,7 @@ The home page works like a small browser for the work. From top to bottom:
 - One icon per project page (five in total), drawn by Henri, based on that project's form or main idea.
 - Simple, single line weight, Ink on Paper, saved as SVG in images/icons.
 - R+EC is the exception: its icon on the home page is its cover drawing (the line drawing of the three buildings with "R+EC" written on the ground), saved as images/icons/rec.jpg. It is shown whole, at its own proportions, centred in the square icon box, with no grey background.
-- On hover or tap: the icon takes on the project accent colour and lifts 4px over 200ms. On the home page the project name and description appear with it (see Home page).
+- On hover or tap: the icon takes on the project accent colour and lifts 4px over 200ms. On the home page the icon instead glides to the left over 400ms and the project name and description appear beside it (see Home page).
 - Icons appear on the home page (stacked in one column, see Home page), on the projects page and beside the title of each project page.
 
 ## Movement

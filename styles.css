@@ -499,31 +499,64 @@ button {
   color: var(--paper);
 }
 
-/* Project icons: one vertical column, evenly spaced. Each project takes
-   eight grid columns: the icon on columns 1 to 2, its name and
-   description on columns 3 to 8. */
+/* Project icons: one vertical column, evenly spaced, each icon four grid
+   columns wide and centred on the page. Each project's row spans the whole
+   grid so that hovering anywhere along it counts. */
 .field {
   margin-top: 40px;
   row-gap: var(--section);
+  /* Centre position of the icon, and how far that is from the left edge */
+  --icon-start: 5;
+  --icon-shift: calc(100% + var(--gutter));
 }
 
 .field .icon { grid-column: 1 / -1; }
 
 .field .icon__link {
   display: grid;
-  grid-template-columns: repeat(8, minmax(0, 1fr));
+  grid-template-columns: repeat(var(--cols), minmax(0, 1fr));
   column-gap: var(--gutter);
   align-items: start;
-  /* Eight of the twelve columns */
-  width: calc((100% - 11 * var(--gutter)) / 12 * 8 + 7 * var(--gutter));
 }
 
-.field .icon__box { grid-column: 1 / span 2; }
+/* The icon's place in the grid is the left edge (columns 1 to 4). At rest
+   it is shifted to the centre; on hover or focus it glides back to the left
+   and the name and description fade in beside it. */
+.field .icon__box {
+  grid-area: 1 / 1 / auto / span 4;
+  transform: translateX(var(--icon-shift));
+  transition: transform 400ms ease-out;
+}
 
-.field .icon__text { grid-column: 3 / -1; }
+.field .icon__text {
+  grid-area: 1 / 5 / auto / span 6;
+  transition: opacity 400ms ease-out;
+}
+
+.field .icon__link:hover .icon__box,
+.field .icon__link:focus-visible .icon__box,
+.field .icon__link:active .icon__box,
+.field .icon.is-open .icon__box {
+  transform: none;
+}
 
 /* An open project keeps its name and description on show */
 .field .icon.is-open .icon__text { opacity: 1; }
+
+/* Touch screens have no hover: the icon stays centred and the name and
+   description sit below it, always on show */
+@media (hover: none) {
+  .field .icon__box,
+  .field .icon.is-open .icon__box {
+    grid-column: var(--icon-start) / span 4;
+    transform: none;
+  }
+
+  .field .icon__text {
+    grid-area: 2 / var(--icon-start) / auto / span 4;
+    margin-top: 16px;
+  }
+}
 
 /* Viewer: closed until its project is clicked. It grows to its full height
    while fading in and scaling up from 96%, pushing the projects below down. */
@@ -647,8 +680,17 @@ button {
 /* Slightly more space between pairs than between other images */
 .slide--pair + .slide--pair { margin-left: 16px; }
 
+/* Tablet: eight columns, so the centre is columns 3 to 6 */
 @media (max-width: 1024px) {
-  .field .icon__link { width: 100%; }
+  .field {
+    --icon-start: 3;
+    --icon-shift: calc(50% + var(--gutter) / 2);
+  }
+
+}
+
+@media (max-width: 1024px) and (hover: hover) {
+  .field .icon__text { grid-column: 5 / -1; }
 }
 
 /* Projects outside the chosen filter fade and drop below the chosen ones */
@@ -673,8 +715,14 @@ button {
 @media (max-width: 600px) {
   .pagehead { padding-bottom: 40px; }
 
-  /* Phone: the name and description sit below the icon and always show */
+  /* Phone: the icon fills the width; the name and description sit below it
+     and always show */
   .field .icon__link { display: block; }
+
+  .field .icon__box,
+  .field .icon.is-open .icon__box {
+    transform: none;
+  }
 
   .slide__media { height: min(48vh, 86vw); }
 
@@ -682,10 +730,6 @@ button {
   .slide__desc { flex-basis: 100%; }
 
   .viewer__slides { margin-top: 24px; }
-
-  .field .icon__box {
-    width: calc((100% - 3 * var(--gutter)) / 4 * 2 + var(--gutter));
-  }
 
   .field .icon__text {
     margin-top: 16px;
