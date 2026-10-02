@@ -121,6 +121,7 @@ Never invent facts, dimensions, dates or names that Henri has not given. Ask him
 
 ## Images
 - Henri's files go in a folder called images. Project icons go in images/icons as SVG, one per project page (six in total, one shared icon for Built Work).
+- Deering Estate: Henri's original files are in images/de. Its icon on the home page is a web-sized copy of de-03-p-section.jpg, saved as images/icons/deering.jpg. The originals are not used by any page.
 - R+EC: Henri's original PNG files are in images/rec. The site shows web-sized JPEG copies from images/rec/web (longest side 2800px, each under 500 KB). The originals are not used by any page.
 - Where there is no image yet, use a plain grey box labelled [ADD: image of ...].
 - Every image has alt text describing what it shows.

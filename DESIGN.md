@@ -99,6 +99,7 @@ The home page works like a small browser for the work. From top to bottom:
 - One icon per project page (six in total), drawn by Henri, based on that project's form or main idea.
 - Simple, single line weight, Ink on Paper, saved as SVG in images/icons.
 - R+EC is the exception: its icon on the home page is its cover drawing (the line drawing of the three buildings with "R+EC" written on the ground), saved as images/icons/rec.jpg. It is shown whole, at its own proportions, centred in the square icon box, with no grey background.
+- Deering Estate is the second exception: its icon on the home page is its section perspective render (de-03-p-section), saved as images/icons/deering.jpg and shown the same way. It is in full colour, which follows the rule that colour comes from the work.
 - On hover or tap: the icon takes on the project accent colour and lifts 4px over 200ms. On the home page the icon instead glides to the left over 400ms and the project name and description appear beside it (see Home page).
 - Icons appear on the home page (stacked in one column, see Home page), on the projects page and beside the title of each project page.
 
