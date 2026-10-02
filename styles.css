@@ -280,14 +280,27 @@ button {
   transition: transform 200ms ease-out;
 }
 
-.icon__name {
+/* Name and short description: hidden at rest, shown on hover or focus */
+.icon__text {
   display: block;
-  margin-top: 16px;
-  font-size: 15px;
-  font-weight: 500;
-  line-height: 1.4;
   opacity: 0;
   transition: opacity 200ms ease-out;
+}
+
+.icon__name {
+  display: block;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+.icon__desc {
+  display: block;
+  max-width: 68ch;
+  margin-top: 8px;
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--graphite);
 }
 
 .icon__link:hover .icon__box,
@@ -296,10 +309,15 @@ button {
   transform: translateY(-4px);
 }
 
-.icon__link:hover .icon__name,
-.icon__link:focus-visible .icon__name,
-.icon__link:active .icon__name {
+.icon__link:hover .icon__text,
+.icon__link:focus-visible .icon__text,
+.icon__link:active .icon__text {
   opacity: 1;
+}
+
+/* Touch screens have no hover, so the name and description always show */
+@media (hover: none) {
+  .icon__text { opacity: 1; }
 }
 
 /* Buttons and text links */
@@ -425,24 +443,26 @@ button {
   color: var(--paper);
 }
 
-/* Project icons: one vertical column, two grid columns wide, evenly spaced */
+/* Project icons: one vertical column, evenly spaced. Each project takes
+   eight grid columns: the icon on columns 1 to 2, its name and
+   description on columns 3 to 8. */
 .field {
   margin-top: 40px;
   row-gap: var(--section);
 }
 
-.field .icon {
-  grid-column: 1 / span 2;
-  position: relative;
+.field .icon { grid-column: 1 / span 8; }
+
+.field .icon__link {
+  display: grid;
+  grid-template-columns: repeat(8, minmax(0, 1fr));
+  column-gap: var(--gutter);
+  align-items: start;
 }
 
-/* The name appears in the white space under its icon without adding to it */
-.field .icon__name {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  right: 0;
-}
+.field .icon__box { grid-column: 1 / span 2; }
+
+.field .icon__text { grid-column: 3 / -1; }
 
 .js .field .icon.is-dim { opacity: 0.2; }
 
@@ -461,6 +481,22 @@ button {
 
 @media (max-width: 600px) {
   .pagehead { padding-bottom: 40px; }
+
+  /* Phone: the name and description sit below the icon and always show */
+  .field .icon { grid-column: 1 / -1; }
+
+  .field .icon__link { display: block; }
+
+  .field .icon__box {
+    width: calc((100% - 3 * var(--gutter)) / 4 * 2 + var(--gutter));
+  }
+
+  .field .icon__text {
+    margin-top: 16px;
+    opacity: 1;
+  }
+
+  .icon__name { font-size: 18px; }
 
   .lead--band { aspect-ratio: 4 / 3; }
   .links { margin-top: 40px; }

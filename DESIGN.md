@@ -25,8 +25,8 @@ The interface is black and white. Colour comes only from the drawings.
 
 Project accents: one colour per project, sampled by Henri from that project's own drawings. Used only for the project's icon on hover or tap, and thin accents on that project's page (the rule above the facts block, link underlines). Never used for body text unless it passes 4.5:1 contrast on its background.
 - R+EC: [ADD: hex sampled from drawings]
-- Building Ecologies Canopy: [ADD: hex sampled from drawings]
-- Fishing Market: [ADD: hex sampled from drawings]
+- Rain Field: [ADD: hex sampled from drawings]
+- Ramp & Reel Fishing Market: [ADD: hex sampled from drawings]
 - Mercy University: [ADD: hex sampled from drawings]
 - Built Work: [ADD: one hex sampled from the pergola or garage door photos]
 
@@ -53,7 +53,12 @@ One family, free from Google Fonts: Inter, weights 400, 500 and 600. Contemporar
 The home page works like a small browser for the work. From top to bottom:
 - "Henri Maman" at Display size with "Portfolio" beneath it, on the left edge of the grid, 120px below the top bar (64px on phone).
 - Toolbar: four filter buttons on the left: All, Studio Work, Professional Work, Built Work. Beneath them, a count in caption type, for example "3 of 5 projects: Studio Work".
-- The five project icons in a single vertical column, stacked one under the other on the left edge of the grid, on desktop and phone alike. Each icon is two columns wide. The white space between them is generous and even: 120px from the bottom of one icon to the top of the next on desktop, 64px on phone. The project name appears in that space on hover or tap. Icons outside the chosen filter stay in place, fade to 20% opacity and cannot be clicked, so the groups read at a glance.
+- The five project icons in a single vertical column, stacked one under the other on the left edge of the grid, on desktop and phone alike. Each icon is two columns wide. The white space between them is generous and even: 120px between one project and the next on desktop, 64px on phone.
+- Each icon carries the project's name and a short description. The name is Heading 3 size, weight 500, Ink; the description is 15px, Graphite, line height 1.55, lines no longer than about 68 characters.
+  - With a mouse: they are hidden at rest and appear on hover or keyboard focus, to the right of the icon and level with its top (grid columns 3 to 8), fading in over 200ms.
+  - On phones, and on any touch screen with no hover: they are always visible. On phone they sit below the icon, 16px beneath it; the 64px of white space then runs from the end of the description to the next icon.
+  - A project with no description yet shows its name only.
+- Icons outside the chosen filter stay in place, fade to 20% opacity and cannot be clicked, so the groups read at a glance.
 - One full-bleed lead image, 21:9 on desktop and 4:3 on phone, 120px below the last icon (64px on phone).
 - Text links to Projects and About, 64px below the image.
 - Nothing changes on its own. The page only changes when a button is pressed.
@@ -83,7 +88,7 @@ The home page works like a small browser for the work. From top to bottom:
 ## Project icons
 - One icon per project page (five in total), drawn by Henri, based on that project's form or main idea.
 - Simple, single line weight, Ink on Paper, saved as SVG in images/icons.
-- On hover or tap: the icon takes on the project accent colour and lifts 4px over 200ms, and the project name appears beneath it.
+- On hover or tap: the icon takes on the project accent colour and lifts 4px over 200ms. On the home page the project name and description appear with it (see Home page).
 - Icons appear on the home page (stacked in one column, see Home page), on the projects page and beside the title of each project page.
 
 ## Movement

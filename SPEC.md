@@ -14,12 +14,18 @@ login.html (never gated)
 
 index.html (home)
 - Purpose: in ten seconds, show a confident, precise designer who understands the business.
-- Content: menu; "Henri Maman" with the word "Portfolio" directly beneath it; a toolbar that filters the projects by type (All, Studio Work, Professional Work, Built Work) and shows a count; the project icons, stacked in a single column, each linking to its project page; one full-bleed lead image [ADD: image of Henri's strongest project]; links to Projects and About. See DESIGN.md, "Home page".
+- Content: menu; "Henri Maman" with the word "Portfolio" directly beneath it; a toolbar that filters the projects by type (All, Studio Work, Professional Work, Built Work) and shows a count; the project icons, stacked in a single column, each linking to its project page and each with the project's name and short description (shown on hover with a mouse, always shown on phones); one full-bleed lead image [ADD: image of Henri's strongest project]; links to Projects and About. See DESIGN.md, "Home page".
+- Home page descriptions, in Henri's words:
+  - R+EC: "A youth recreation and learning center in North Miami Beach made up of a skate park and gym, an entrepreneurship building, and a public commercial building. A timber circulation spine links the three, while vertical fins and deep overhangs work with active cooling to cut energy use."
+  - Rain Field: "A modular campus canopy that provides shade and collects rainwater without any excavation. Its aluminum frame and fabric roof drain into concrete base blocks that store the water for campus irrigation."
+  - Ramp & Reel Fishing Market: "Ramp & Reel is a fish market on the Miami River that turns an industrial edge into an active public waterfront. Continuous ramps make the entire building accessible and guide visitors through the market toward the river."
+  - Mercy University: "As a Project Design Intern at Clarke Caton Hintz, I produced demolition plans, proposed floor plans, and reflected ceiling plans for Mercy University. I also built the project's SketchUp model and helped render it in Lumion."
+  - Built Work: [ADD: short description]. Until then it shows its name only.
 
 projects.html
 - Purpose: every project in one place.
 - Content: projects grouped under three headings. Each entry shows its icon, title, context (course or firm), year, one line of description and one framed image. Every value comes from Henri.
-  - Studio Work: R+EC, Building Ecologies Canopy, Fishing Market.
+  - Studio Work: R+EC, Rain Field, Ramp & Reel Fishing Market.
   - Professional Work: Mercy University (Clarke Caton Hintz).
   - Built Work: Pergola and Garage Door, on one shared page.
 
@@ -27,8 +33,8 @@ Project pages
 
 Studio Work
 - project-rec.html: R+EC, ARC 306, Prof. Carie Penabad. [ADD: year, description, images, project facts]
-- project-building-ecologies.html: Building Ecologies Canopy, ARC 407, a modular shade and rainwater canopy on campus. [ADD: year, description, images, project facts]
-- project-fishing-market.html: Fishing Market, ARC 204, Prof. Pablo Duenas, 2nd year studio. [ADD: calendar year, description, images, project facts]
+- project-building-ecologies.html: Rain Field (formerly called Building Ecologies Canopy; the file name is unchanged), ARC 407, a modular shade and rainwater canopy on campus. [ADD: year, description, images, project facts]
+- project-fishing-market.html: Ramp & Reel Fishing Market, ARC 204, Prof. Pablo Duenas, 2nd year studio. [ADD: calendar year, description, images, project facts]
 
 Professional Work
 - project-mercy-university.html: Mercy University, produced at Clarke Caton Hintz. Henri has permission to show it. Henri's role: Project Design Intern. Henri produced demolition plans, proposed plans and reflected ceiling plans (RCPs) in CAD.
