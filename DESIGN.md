@@ -52,10 +52,9 @@ One family, free from Google Fonts: Inter, weights 400, 500 and 600. Contemporar
 ## Home page
 The home page works like a small browser for the work. From top to bottom:
 - "Henri Maman" at Display size with "Portfolio" beneath it, on the left edge of the grid, 120px below the top bar (64px on phone).
-- Toolbar. On the left, four filter buttons: All, Studio Work, Professional Work, Built Work. On the right, a joined pair of view buttons: Icons, List. Beneath them, a count in caption type, for example "3 of 5 projects: Studio Work". On tablet and phone the view buttons sit under the filters, on the left.
-- Icons view (shown first): the field of five project icons. Each icon is two columns wide and every second icon is stepped down 40px. Icons outside the chosen filter stay in place, fade to 20% opacity and cannot be clicked, so the groups read at a glance.
-- List view: a plain table with Hairline rules and three columns: Project (a text link), Type, Context. Projects outside the chosen filter are removed from the list. On phone each project stacks into one block: name, then type and context in Graphite caption type.
-- One full-bleed lead image, 21:9 on desktop and 4:3 on phone, 120px below the field or list.
+- Toolbar: four filter buttons on the left: All, Studio Work, Professional Work, Built Work. Beneath them, a count in caption type, for example "3 of 5 projects: Studio Work".
+- The field of five project icons. Each icon is two columns wide and every second icon is stepped down 40px. Icons outside the chosen filter stay in place, fade to 20% opacity and cannot be clicked, so the groups read at a glance.
+- One full-bleed lead image, 21:9 on desktop and 4:3 on phone, 120px below the field.
 - Text links to Projects and About, 64px below the image.
 - Nothing changes on its own. The page only changes when a button is pressed.
 
@@ -111,7 +110,7 @@ Expressive but light. Plain CSS and a small amount of plain JavaScript. No anima
 - On phones: name on the left, the word "Menu" on the right. It opens a full-screen Ink overlay with the links in Paper at Heading 2 size, Log out last.
 - The current page is marked with an underline.
 - Buttons: rectangular, square corners, 1px Ink border, Ink text, 16px weight 500. On hover or focus they invert. Every tap target is at least 44px tall.
-- Filter and view buttons (home page toolbar): the same button style, 44px tall. The chosen button stays inverted (Ink background, Paper text).
+- Filter buttons (home page toolbar): the same button style, 44px tall. The chosen button stays inverted (Ink background, Paper text).
 - Keyboard focus is always visible: a 2px Ink outline (Paper on Ink backgrounds).
 
 ## Tone of voice

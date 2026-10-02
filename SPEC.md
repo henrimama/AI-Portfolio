@@ -14,8 +14,7 @@ login.html (never gated)
 
 index.html (home)
 - Purpose: in ten seconds, show a confident, precise designer who understands the business.
-- Content: menu; "Henri Maman" with the word "Portfolio" directly beneath it; a toolbar that filters the projects by type (All, Studio Work, Professional Work, Built Work), switches between an Icons view and a List view, and shows a count; the field of project icons, each linking to its project page; the list, showing each project's name, type and context, each linking to its project page; one full-bleed lead image [ADD: image of Henri's strongest project]; links to Projects and About. See DESIGN.md, "Home page".
-- The type and context shown in the list come from the project entries in this file. Nothing else is shown.
+- Content: menu; "Henri Maman" with the word "Portfolio" directly beneath it; a toolbar that filters the projects by type (All, Studio Work, Professional Work, Built Work) and shows a count; the field of project icons, each linking to its project page; one full-bleed lead image [ADD: image of Henri's strongest project]; links to Projects and About. See DESIGN.md, "Home page".
 
 projects.html
 - Purpose: every project in one place.
@@ -93,7 +92,7 @@ Never invent facts, dimensions, dates or names that Henri has not given. Ask him
 - Plain HTML, CSS and JavaScript files only. No frameworks, no npm, no build step.
 - Supabase is loaded from its CDN script tag.
 - index.html sits at the top of the folder.
-- Files: index.html, login.html, projects.html, about.html, contact.html, project-rec.html, project-building-ecologies.html, project-fishing-market.html, project-mercy-university.html, project-built-work.html, styles.css, auth.js (session check, redirects, log out), supabase-config.js (project URL and anon key only), motion.js (scroll and hover movement, phone menu), home.js (home page toolbar: filter and view switch), images folder with an icons folder inside it.
+- Files: index.html, login.html, projects.html, about.html, contact.html, project-rec.html, project-building-ecologies.html, project-fishing-market.html, project-mercy-university.html, project-built-work.html, styles.css, auth.js (session check, redirects, log out), supabase-config.js (project URL and anon key only), motion.js (scroll and hover movement, phone menu), home.js (home page toolbar: filter), images folder with an icons folder inside it.
 - Inter is loaded from Google Fonts.
 - It must work on a phone.
 - It is published from GitHub to Vercel.

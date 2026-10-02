@@ -393,26 +393,18 @@ button {
 
 /* ---------- Home page ---------- */
 
-/* Toolbar: filters on the left, view switch on the right, count beneath */
+/* Toolbar: filters, with the count beneath */
 .toolbar {
   row-gap: 16px;
   align-items: start;
 }
 
 .toolbar__filters {
-  grid-column: 1 / span 9;
+  grid-column: 1 / -1;
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
 }
-
-.toolbar__view {
-  grid-column: 10 / -1;
-  display: flex;
-  justify-content: flex-end;
-}
-
-.toolbar__view .chip + .chip { border-left: 0; }
 
 .toolbar__status { grid-column: 1 / -1; }
 
@@ -445,38 +437,6 @@ button {
 
 .js .field .icon.is-dim { opacity: 0.2; }
 
-/* List view */
-.listwrap { margin-top: 40px; }
-
-.list {
-  grid-column: 1 / -1;
-  width: 100%;
-  border-collapse: collapse;
-  text-align: left;
-}
-
-.list th,
-.list td {
-  padding: 16px 24px 16px 0;
-  vertical-align: middle;
-  font-weight: 400;
-}
-
-.list thead th {
-  padding-top: 0;
-  font-size: 15px;
-  font-weight: 500;
-  color: var(--graphite);
-}
-
-.list tbody tr { border-top: 1px solid var(--hairline); }
-
-.list tbody tr:last-child { border-bottom: 1px solid var(--hairline); }
-
-.list th:first-child { width: 42%; }
-
-.list td:nth-child(2) { width: 25%; }
-
 .lead--band {
   margin-top: var(--section);
   aspect-ratio: 21 / 9;
@@ -490,37 +450,8 @@ button {
   gap: 40px;
 }
 
-@media (max-width: 1024px) {
-  .toolbar__filters { grid-column: 1 / -1; }
-
-  .toolbar__view {
-    grid-column: 1 / -1;
-    justify-content: flex-start;
-  }
-}
-
 @media (max-width: 600px) {
   .pagehead { padding-bottom: 40px; }
-
-  /* The list stacks: one project per block */
-  .list thead { display: none; }
-
-  .list tbody tr {
-    display: block;
-    padding: 16px 0;
-  }
-
-  .list th,
-  .list td {
-    display: block;
-    width: auto !important;
-    padding: 0;
-  }
-
-  .list td {
-    font-size: 15px;
-    color: var(--graphite);
-  }
 
   .lead--band { aspect-ratio: 4 / 3; }
   .links { margin-top: 40px; }

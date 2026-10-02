@@ -55,8 +55,7 @@
       </div>
     </section>
 
-    <!-- The toolbar filters the work by type and switches between the
-         icon field and the list. See DESIGN.md, "Home page". -->
+    <!-- The toolbar filters the work by type. See DESIGN.md, "Home page". -->
     <section aria-label="Projects">
 
       <div class="toolbar grid">
@@ -66,14 +65,10 @@
           <button type="button" class="chip" data-filter="professional" aria-pressed="false">Professional Work</button>
           <button type="button" class="chip" data-filter="built" aria-pressed="false">Built Work</button>
         </div>
-        <div class="toolbar__view" role="group" aria-label="View">
-          <button type="button" class="chip" data-view="icons" aria-pressed="true">Icons</button>
-          <button type="button" class="chip" data-view="list" aria-pressed="false">List</button>
-        </div>
         <p class="toolbar__status caption" aria-live="polite">5 of 5 projects</p>
       </div>
 
-      <ul class="field grid" id="view-icons">
+      <ul class="field grid">
         <li class="icon reveal" data-type="studio">
           <a class="icon__link" href="project-rec.html">
             <span class="icon__box placeholder" aria-hidden="true">[ADD: icon for R+EC]</span>
@@ -105,46 +100,6 @@
           </a>
         </li>
       </ul>
-
-      <div class="listwrap grid" id="view-list" hidden>
-        <table class="list">
-          <caption class="visually-hidden">Projects</caption>
-          <thead>
-            <tr>
-              <th scope="col">Project</th>
-              <th scope="col">Type</th>
-              <th scope="col">Context</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr data-type="studio">
-              <th scope="row"><a class="textlink" href="project-rec.html">R+EC</a></th>
-              <td>Studio Work</td>
-              <td>ARC 306, Prof. Carie Penabad</td>
-            </tr>
-            <tr data-type="studio">
-              <th scope="row"><a class="textlink" href="project-building-ecologies.html">Building Ecologies Canopy</a></th>
-              <td>Studio Work</td>
-              <td>ARC 407</td>
-            </tr>
-            <tr data-type="studio">
-              <th scope="row"><a class="textlink" href="project-fishing-market.html">Fishing Market</a></th>
-              <td>Studio Work</td>
-              <td>ARC 204, Prof. Pablo Duenas</td>
-            </tr>
-            <tr data-type="professional">
-              <th scope="row"><a class="textlink" href="project-mercy-university.html">Mercy University</a></th>
-              <td>Professional Work</td>
-              <td>Clarke Caton Hintz, Project Design Intern</td>
-            </tr>
-            <tr data-type="built">
-              <th scope="row"><a class="textlink" href="project-built-work.html">Built Work</a></th>
-              <td>Built Work</td>
-              <td>Pergola, France. Garage Door, Princeton, New Jersey</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
 
     </section>
 
