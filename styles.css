@@ -464,7 +464,11 @@ button {
 
 .field .icon__text { grid-column: 3 / -1; }
 
-.js .field .icon.is-dim { opacity: 0.2; }
+/* Projects outside the chosen filter fade and drop below the chosen ones */
+.js .field .icon.is-dim {
+  order: 1;
+  opacity: 0.2;
+}
 
 .lead--band {
   margin-top: var(--section);

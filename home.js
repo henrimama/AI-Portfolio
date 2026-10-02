@@ -4,8 +4,8 @@
   var icons = document.querySelectorAll('.field [data-type]');
   var status = document.querySelector('.toolbar__status');
 
-  // Projects outside the filter stay in place but step back, so the groups
-  // read at a glance.
+  // Projects outside the filter fade and cannot be clicked. styles.css also
+  // moves them below the chosen ones, so the chosen projects come to the top.
   function filter(button) {
     var type = button.dataset.filter;
     var shown = 0;

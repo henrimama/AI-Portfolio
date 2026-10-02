@@ -58,7 +58,7 @@ The home page works like a small browser for the work. From top to bottom:
   - With a mouse: they are hidden at rest and appear on hover or keyboard focus, to the right of the icon and level with its top (grid columns 3 to 8), fading in over 200ms.
   - On phones, and on any touch screen with no hover: they are always visible. On phone they sit below the icon, 16px beneath it; the 64px of white space then runs from the end of the description to the next icon.
   - A project with no description yet shows its name only.
-- Icons outside the chosen filter stay in place, fade to 20% opacity and cannot be clicked, so the groups read at a glance.
+- When a filter is chosen, the projects of that type move to the top of the column, directly under the toolbar, in their usual order. The other projects follow beneath them, faded to 20% opacity, and cannot be clicked. "All" puts every project back in its usual order.
 - One full-bleed lead image, 21:9 on desktop and 4:3 on phone, 120px below the last icon (64px on phone).
 - Text links to Projects and About, 64px below the image.
 - Nothing changes on its own. The page only changes when a button is pressed.
@@ -97,7 +97,7 @@ Expressive but light. Plain CSS and a small amount of plain JavaScript. No anima
 - Images fade in and rise 24px into place when they first enter the screen (400ms, ease-out), once only.
 - Full-bleed images move slightly slower than the scroll, never more than 40px of offset.
 - The phone menu overlay fades in over 250ms.
-- On the home page, icons outside the chosen filter fade to 20% opacity over 400ms. This shows which projects belong to each type of work.
+- On the home page, projects outside the chosen filter fade to 20% opacity over 400ms. This shows which projects belong to each type of work. The move to the top of the column is immediate, with no animation.
 - If a visitor's device is set to reduce motion, all movement is switched off and everything simply appears in place.
 - Test for every movement: does it help someone understand a project? If it is only decoration, it is cut.
 
