@@ -21,11 +21,8 @@
       });
     }
     setUpForm();
-  } else if (!hasKeys) {
-    // Setup mode: no Supabase keys yet, so there is nothing to check against.
-    console.warn('Log-in gate is off: add the Supabase URL and anon key to supabase-config.js.');
-    show();
   } else if (!client) {
+    // No keys, or Supabase did not load: nobody can be signed in.
     go('login.html');
   } else {
     client.auth.getSession().then(function (result) {
