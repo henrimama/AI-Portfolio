@@ -18,7 +18,8 @@ index.html (home)
 - Clicking a project on the home page expands it in place (it does not leave the page):
   - The project grows to the full width of the grid with a smooth fade and scale, and pushes the projects below it down.
   - Inside, the project's images sit side by side in one continuous strip that scrolls sideways seamlessly. It does not stop on each image and there are no separate pages. Swipe on phones; drag, or the left and right arrow keys, on desktop. There are no buttons inside an open project.
-  - Under each image: its title on the left, and on the opposite side a text box with Henri's description of that image [ADD: a description for each image, from Henri].
+  - Under each drawing or render: its title on the left, and on the opposite side a text box with Henri's description of that image [ADD: a description for each drawing and render, from Henri].
+  - Photos of physical models have a title only, with no description text box. In R+EC these are: model, section model 1, 2 and 3.
   - Only one project is open at a time. Clicking a different project closes the open one back to its original size and opens the new one the same way. Clicking the open project again, or the Escape key, closes it.
   - It works the same for all five projects. A project with no images yet shows grey [ADD: image of ...] boxes in the viewer.
   - The full project pages are reached from the Projects page. Without JavaScript, clicking a project on the home page goes straight to its project page.
