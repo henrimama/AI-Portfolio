@@ -21,7 +21,7 @@ index.html (home)
   - Under each drawing or render: its title on the left, and on the opposite side a text box with Henri's description of that image [ADD: a description for each drawing and render, from Henri].
   - Photos of physical models have a title only, with no description text box. In R+EC these are: model, section model 1, 2 and 3.
   - Only one project is open at a time. Clicking a different project closes the open one back to its original size and opens the new one the same way. Clicking the open project again, or the Escape key, closes it.
-  - It works the same for all five projects. A project with no images yet shows grey [ADD: image of ...] boxes in the viewer.
+  - It works the same for all six projects. A project with no images yet shows grey [ADD: image of ...] boxes in the viewer.
   - The full project pages are reached from the Projects page. Without JavaScript, clicking a project on the home page goes straight to its project page.
   - Elevations and sections are scaled to fit the visible width, never cropped, and stacked in pairs: North Elevation above South Elevation, East Elevation above West Elevation, Long Section above Short Section (see DESIGN.md, "Home page"). If a project is missing one drawing of a pair, the one it has stays in place.
   - R+EC's cover drawing is its icon on the home page, in the box beside the project's name and description (images/icons/rec.jpg). It is not repeated in the strip of images.
@@ -33,12 +33,13 @@ index.html (home)
   - Rain Field: "A modular campus canopy that provides shade and collects rainwater without any excavation. Its aluminum frame and fabric roof drain into concrete base blocks that store the water for campus irrigation."
   - Ramp & Reel Fishing Market: "Ramp & Reel is a fish market on the Miami River that turns an industrial edge into an active public waterfront. Continuous ramps make the entire building accessible and guide visitors through the market toward the river."
   - Mercy University: "As a Project Design Intern at Clarke Caton Hintz, I produced demolition plans, proposed floor plans, and reflected ceiling plans for Mercy University. I also built the project's SketchUp model and helped render it in Lumion."
+  - Deering Estate: "A small academic complex at the Deering Estate that treats thresholds as architecture, linking classrooms, offices, a lab, a lecture hall, and a gallery through breezeways, patios, and shaded outdoor rooms. Operable louvers, deep overhangs, and exposed timber structure control light and airflow while keeping the buildings open to the landscape." Beneath it, a project info line: "University of Miami, Cardona Studio. Partner: Myzel Hatchette. Miami, FL."
   - Built Work: [ADD: short description]. Until then it shows its name only.
 
 projects.html
 - Purpose: every project in one place.
 - Content: projects grouped under three headings. Each entry shows its icon, title, context (course or firm), year, one line of description and one framed image. Every value comes from Henri.
-  - Studio Work: R+EC, Rain Field, Ramp & Reel Fishing Market.
+  - Studio Work: R+EC, Deering Estate, Rain Field, Ramp & Reel Fishing Market.
   - Professional Work: Mercy University (Clarke Caton Hintz).
   - Built Work: Pergola and Garage Door, on one shared page.
 
@@ -46,6 +47,7 @@ Project pages
 
 Studio Work
 - project-rec.html: R+EC, ARC 306, Prof. Carie Penabad. [ADD: year, description, images, project facts]
+- project-deering-estate.html: Deering Estate. Listed second, directly under R+EC, on the home page and the Projects page. Context line: "University of Miami, Cardona Studio. Partner: Myzel Hatchette. Miami, FL." Description: the same text as on the home page. [ADD: year, images, project facts]
 - project-building-ecologies.html: Rain Field (formerly called Building Ecologies Canopy; the file name is unchanged), ARC 407, a modular shade and rainwater canopy on campus. [ADD: year, description, images, project facts]
 - project-fishing-market.html: Ramp & Reel Fishing Market, ARC 204, Prof. Pablo Duenas, 2nd year studio. [ADD: calendar year, description, images, project facts]
 
@@ -111,14 +113,14 @@ Never invent facts, dimensions, dates or names that Henri has not given. Ask him
 - Plain HTML, CSS and JavaScript files only. No frameworks, no npm, no build step.
 - Supabase is loaded from its CDN script tag.
 - index.html sits at the top of the folder.
-- Files: index.html, login.html, projects.html, about.html, contact.html, project-rec.html, project-building-ecologies.html, project-fishing-market.html, project-mercy-university.html, project-built-work.html, styles.css, auth.js (session check, redirects, log out), supabase-config.js (project URL and anon key only), motion.js (scroll and hover movement, phone menu), home.js (home page toolbar: filter), images folder with an icons folder inside it.
+- Files: index.html, login.html, projects.html, about.html, contact.html, project-rec.html, project-deering-estate.html, project-building-ecologies.html, project-fishing-market.html, project-mercy-university.html, project-built-work.html, styles.css, auth.js (session check, redirects, log out), supabase-config.js (project URL and anon key only), motion.js (scroll and hover movement, phone menu), home.js (home page toolbar: filter), images folder with an icons folder inside it.
 - Inter is loaded from Google Fonts.
 - It must work on a phone.
 - It is published from GitHub to Vercel.
 - Every page has a title, a one-line description and a share image so the link looks good when texted: images/share.jpg [ADD: share image].
 
 ## Images
-- Henri's files go in a folder called images. Project icons go in images/icons as SVG, one per project page (five in total, one shared icon for Built Work).
+- Henri's files go in a folder called images. Project icons go in images/icons as SVG, one per project page (six in total, one shared icon for Built Work).
 - R+EC: Henri's original PNG files are in images/rec. The site shows web-sized JPEG copies from images/rec/web (longest side 2800px, each under 500 KB). The originals are not used by any page.
 - Where there is no image yet, use a plain grey box labelled [ADD: image of ...].
 - Every image has alt text describing what it shows.
