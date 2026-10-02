@@ -13,12 +13,32 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
-  <script>document.documentElement.classList.add('js');</script>
+  <script>
+    document.documentElement.classList.add('js');
+    // Intro screen: only right after log-in (auth.js leaves a note), never on
+    // a refresh. Skipped when the device is set to reduce motion.
+    try {
+      if (sessionStorage.getItem('intro')) {
+        sessionStorage.removeItem('intro');
+        if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+          document.documentElement.classList.add('intro');
+        }
+      }
+    } catch (e) {}
+  </script>
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" defer></script>
   <script src="supabase-config.js" defer></script>
   <script src="auth.js" defer></script>
 </head>
 <body>
+
+  <!-- Intro screen, played once after log-in. See DESIGN.md, "Intro screen". -->
+  <div class="intro-screen" aria-hidden="true">
+    <div class="intro-screen__text">
+      <p class="display">Henri Maman</p>
+      <p class="intro-screen__sub">Portfolio</p>
+    </div>
+  </div>
 
   <header class="bar">
     <div class="bar__inner">

@@ -94,6 +94,8 @@
         if (result.error) {
           say(error, result.error.message);
         } else if (result.data.session) {
+          // Tells the home page to play the intro screen, once.
+          try { sessionStorage.setItem('intro', '1'); } catch (e) {}
           window.location.href = 'index.html';
         } else {
           // Sign-up with email confirmation switched on in Supabase.

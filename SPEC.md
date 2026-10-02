@@ -81,7 +81,7 @@ contact.html
 - The log-in page is login.html and is never gated.
 - index.html is the home page.
 - Every page except login.html sends signed-out visitors to login.html.
-- After log-in, go to index.html.
+- After log-in, go to index.html and play the intro screen once (see DESIGN.md, "Intro screen"). The intro plays only right after log-in, never on a refresh or any other page load.
 - A visitor who is already signed in and opens login.html goes straight to index.html.
 - Log out is on every gated page, in the menu. Logging out returns the visitor to login.html.
 - All links are relative.

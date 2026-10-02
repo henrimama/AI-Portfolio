@@ -411,6 +411,52 @@ button {
 
 /* ---------- Home page ---------- */
 
+/* Intro screen: played once, right after log-in. About 2.5 seconds: the
+   text fades in (600ms), holds, then the whole screen fades out (800ms). */
+.intro-screen {
+  position: fixed;
+  inset: 0;
+  z-index: 30;
+  display: none;
+  place-items: center;
+  padding: var(--margin);
+  background: var(--ink);
+  color: var(--paper);
+  text-align: center;
+}
+
+.intro-screen__sub {
+  margin-top: 8px;
+  font-size: 20px;
+}
+
+.intro .intro-screen {
+  display: grid;
+  /* Shows at once, even while the page behind waits for the session check */
+  visibility: visible;
+  animation: intro-out 800ms ease-in 1700ms forwards;
+}
+
+.intro .intro-screen__text {
+  opacity: 0;
+  animation: intro-in 600ms ease-out forwards;
+}
+
+@keyframes intro-in {
+  to { opacity: 1; }
+}
+
+@keyframes intro-out {
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+@media (max-width: 600px) {
+  .intro-screen__sub { font-size: 18px; }
+}
+
 /* Toolbar: filters, with the count beneath */
 .toolbar {
   row-gap: 16px;

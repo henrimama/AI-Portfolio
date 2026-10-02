@@ -99,7 +99,14 @@ Expressive but light. Plain CSS and a small amount of plain JavaScript. No anima
 - The phone menu overlay fades in over 250ms.
 - On the home page, projects outside the chosen filter fade to 20% opacity over 400ms. This shows which projects belong to each type of work. The move to the top of the column is immediate, with no animation.
 - If a visitor's device is set to reduce motion, all movement is switched off and everything simply appears in place.
-- Test for every movement: does it help someone understand a project? If it is only decoration, it is cut.
+- Test for every movement: does it help someone understand a project? If it is only decoration, it is cut. The one exception is the intro screen, below.
+
+## Intro screen
+- Shown once, right after log-in, before the home page. It is not shown when the home page is refreshed, opened from the menu, or opened by a visitor who was already signed in.
+- A full-screen Ink background with "Henri Maman" in Paper at Display size and "Portfolio" in Paper at Heading 3 size beneath it, both centred on the screen.
+- About 2.5 seconds in total: the text fades in over 600ms, holds for about 1.1 seconds, then the whole screen fades out over 800ms to show the home page.
+- Nothing can be clicked while it plays, and it cannot be skipped.
+- If a visitor's device is set to reduce motion, the intro is skipped and the home page simply appears.
 
 ## The log-in page
 - Full-screen Ink background.
@@ -125,5 +132,5 @@ First person, plain and short. Say what the project is, what it does and why, th
 1. Never add colour to the interface beyond this palette. Colour comes from the work.
 2. Never use pop-ups, cookie walls, auto-playing video or sound.
 3. Never set text smaller than 15px or below 4.5:1 contrast with its background.
-4. Never add animation that does not help someone understand a project, that needs a library, or that slows the page down.
+4. Never add animation that does not help someone understand a project, that needs a library, or that slows the page down. The only exception is the intro screen shown once after log-in.
 5. Never copy BIG's or anyone else's icons, logo, fonts, text or images.
