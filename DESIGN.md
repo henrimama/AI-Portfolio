@@ -53,8 +53,8 @@ One family, free from Google Fonts: Inter, weights 400, 500 and 600. Contemporar
 The home page works like a small browser for the work. From top to bottom:
 - "Henri Maman" at Display size with "Portfolio" beneath it, on the left edge of the grid, 120px below the top bar (64px on phone).
 - Toolbar: four filter buttons on the left: All, Studio Work, Professional Work, Built Work. Beneath them, a count in caption type, for example "3 of 5 projects: Studio Work".
-- The field of five project icons. Each icon is two columns wide and every second icon is stepped down 40px. Icons outside the chosen filter stay in place, fade to 20% opacity and cannot be clicked, so the groups read at a glance.
-- One full-bleed lead image, 21:9 on desktop and 4:3 on phone, 120px below the field.
+- The five project icons in a single vertical column, stacked one under the other on the left edge of the grid, on desktop and phone alike. Each icon is two columns wide. The white space between them is generous and even: 120px from the bottom of one icon to the top of the next on desktop, 64px on phone. The project name appears in that space on hover or tap. Icons outside the chosen filter stay in place, fade to 20% opacity and cannot be clicked, so the groups read at a glance.
+- One full-bleed lead image, 21:9 on desktop and 4:3 on phone, 120px below the last icon (64px on phone).
 - Text links to Projects and About, 64px below the image.
 - Nothing changes on its own. The page only changes when a button is pressed.
 
@@ -84,7 +84,7 @@ The home page works like a small browser for the work. From top to bottom:
 - One icon per project page (five in total), drawn by Henri, based on that project's form or main idea.
 - Simple, single line weight, Ink on Paper, saved as SVG in images/icons.
 - On hover or tap: the icon takes on the project accent colour and lifts 4px over 200ms, and the project name appears beneath it.
-- Icons appear on the home page (as the icon field, see Home page), on the projects page and beside the title of each project page.
+- Icons appear on the home page (stacked in one column, see Home page), on the projects page and beside the title of each project page.
 
 ## Movement
 Expressive but light. Plain CSS and a small amount of plain JavaScript. No animation libraries.

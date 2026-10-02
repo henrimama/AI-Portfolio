@@ -425,15 +425,24 @@ button {
   color: var(--paper);
 }
 
-/* Icon field: five icons, two columns each, every second one stepped down */
+/* Project icons: one vertical column, two grid columns wide, evenly spaced */
 .field {
   margin-top: 40px;
-  row-gap: 24px;
+  row-gap: var(--section);
 }
 
-.field .icon { grid-column: span 2; }
+.field .icon {
+  grid-column: 1 / span 2;
+  position: relative;
+}
 
-.field .icon:nth-child(even) { margin-top: 40px; }
+/* The name appears in the white space under its icon without adding to it */
+.field .icon__name {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+}
 
 .js .field .icon.is-dim { opacity: 0.2; }
 

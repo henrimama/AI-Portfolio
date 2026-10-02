@@ -14,7 +14,7 @@ login.html (never gated)
 
 index.html (home)
 - Purpose: in ten seconds, show a confident, precise designer who understands the business.
-- Content: menu; "Henri Maman" with the word "Portfolio" directly beneath it; a toolbar that filters the projects by type (All, Studio Work, Professional Work, Built Work) and shows a count; the field of project icons, each linking to its project page; one full-bleed lead image [ADD: image of Henri's strongest project]; links to Projects and About. See DESIGN.md, "Home page".
+- Content: menu; "Henri Maman" with the word "Portfolio" directly beneath it; a toolbar that filters the projects by type (All, Studio Work, Professional Work, Built Work) and shows a count; the project icons, stacked in a single column, each linking to its project page; one full-bleed lead image [ADD: image of Henri's strongest project]; links to Projects and About. See DESIGN.md, "Home page".
 
 projects.html
 - Purpose: every project in one place.
