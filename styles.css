@@ -668,30 +668,59 @@ button {
 
 .about { align-items: start; }
 
+.about__text { grid-column: 1 / span 7; }
+
+/* Portrait: four of the seven columns, whole, in black and white */
 .about__portrait {
-  grid-column: 1 / span 4;
-  aspect-ratio: 4 / 5;
+  display: block;
+  width: calc((100% - 6 * var(--gutter)) / 7 * 4 + 3 * var(--gutter));
+  height: auto;
+  filter: grayscale(1);
 }
 
-.about__text { grid-column: 6 / -1; }
-
 .about__text .deflist { margin-top: 40px; }
+
+/* About panel: Ink labels, smaller Graphite text. See DESIGN.md, "About page". */
+.deflist--panel dt {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.deflist--panel dd {
+  max-width: 68ch;
+  margin-bottom: 24px;
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--graphite);
+}
+
+/* The link's box is 44px tall for tapping; the extra height falls below the text */
+.deflist--panel a {
+  display: inline-block;
+  min-height: 44px;
+  font-weight: 500;
+  text-underline-offset: 4px;
+}
+
+.deflist--panel a:hover { text-decoration: none; }
 
 .contact__list { grid-column: 1 / span 8; }
 
 @media (max-width: 1024px) {
-  .about__portrait { grid-column: 1 / span 3; }
-  .about__text { grid-column: 4 / -1; }
+  .about__text { grid-column: 1 / -1; }
+
+  /* Three of the eight columns */
+  .about__portrait {
+    width: calc((100% - 7 * var(--gutter)) / 8 * 3 + 2 * var(--gutter));
+  }
+
   .contact__list { grid-column: 1 / -1; }
 }
 
 @media (max-width: 600px) {
-  .about__portrait { grid-column: 1 / span 2; }
-
-  .about__text {
-    grid-column: 1 / -1;
-    margin-top: 40px;
-  }
+  .about__portrait { width: 100%; }
+  .deflist--panel dt { font-size: 17px; }
 }
 
 /* ---------- Log-in page ---------- */

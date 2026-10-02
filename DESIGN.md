@@ -59,10 +59,18 @@ The home page works like a small browser for the work. From top to bottom:
 - Text links to Projects and About, 64px below the image.
 - Nothing changes on its own. The page only changes when a button is pressed.
 
+## About page
+- One column, on grid columns 1 to 7 on desktop and the full width on tablet and phone.
+- Portrait at the top: four columns wide on desktop, three on tablet, full width on phone. Shown whole at its own proportions, in black and white.
+- 40px beneath it, a panel of entries in this order: Bio, Education, From, Software, Honors, Resume. Each entry is a label with its text beneath, and entries are 24px apart.
+- Labels: Body size (18px desktop, 17px phone), weight 600, Ink.
+- Text: 15px, weight 400, Graphite, line height 1.55, lines no longer than about 68 characters.
+- The resume link sits in the panel in the same 15px Graphite text, weight 500, underlined. The underline is removed on hover. It downloads the file and opens it in a new tab.
+
 ## Image treatment
 - Full-bleed, edge to edge: only images strong enough to hold the full screen width, usually the lead image of a project.
 - Framed: drawings, plans, sections, diagrams and process images sit inside the grid with white space around them. Drawings are shown whole, never cropped.
-- Images keep their own colour. No filters, no forced black and white.
+- Images keep their own colour. No filters, no forced black and white. One exception: Henri's portrait on the About page is shown in black and white, to match the interface.
 - Captions sit under images in Graphite, 15px. On the Mercy University page, each caption stacks three lines: the firm credit, a brief summary of the image, and Henri's specific contribution.
 - Missing images: a Placeholder grey box with the label [ADD: image of ...] in Ink.
 
