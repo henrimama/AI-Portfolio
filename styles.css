@@ -684,7 +684,8 @@ button {
 
 .about__text { grid-column: 6 / -1; }
 
-/* About panel: Ink labels, smaller Graphite text. See DESIGN.md, "About page". */
+/* About and Contact panel: Ink labels, smaller Graphite text.
+   See DESIGN.md, "About page" and "Contact page". */
 .deflist--panel dt {
   font-size: 18px;
   font-weight: 600;

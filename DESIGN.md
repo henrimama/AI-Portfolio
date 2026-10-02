@@ -70,6 +70,10 @@ The home page works like a small browser for the work. From top to bottom:
 - Text: 15px, weight 400, Graphite, line height 1.55, lines no longer than about 68 characters.
 - The resume link sits in the panel in the same 15px Graphite text, weight 500, underlined. The underline is removed on hover. It downloads the file and opens it in a new tab.
 
+## Contact page
+- The same panel style as the About page: labels (Email, LinkedIn) at Body size, weight 600, Ink; the text beneath at 15px, Graphite; entries 24px apart.
+- The email and LinkedIn links look like the resume link: 15px Graphite, weight 500, underlined, underline removed on hover.
+
 ## Image treatment
 - Full-bleed, edge to edge: only images strong enough to hold the full screen width, usually the lead image of a project.
 - Framed: drawings, plans, sections, diagrams and process images sit inside the grid with white space around them. Drawings are shown whole, never cropped.

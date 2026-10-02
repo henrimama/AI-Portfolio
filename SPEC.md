@@ -65,7 +65,10 @@ about.html
 
 contact.html
 - Purpose: make it easy to reach Henri.
-- Content: [ADD: which email address to show], [ADD: LinkedIn link], [ADD: phone number, or none].
+- Content: two entries only.
+  - Email: hpm29@miami.edu, as a mailto link.
+  - LinkedIn: https://www.linkedin.com/in/henrimaman/, opening in a new tab.
+- No phone number, anywhere on the site.
 - No contact form.
 
 ## The log-in gate
