@@ -88,6 +88,8 @@
         <p class="toolbar__status caption" aria-live="polite">5 of 5 projects</p>
       </div>
 
+      <!-- Each project opens in place: its viewer sits closed beneath it until
+           the project is clicked. See DESIGN.md, "Home page", and home.js. -->
       <ul class="field grid">
         <li class="icon reveal" data-type="studio">
           <a class="icon__link" href="project-rec.html">
@@ -97,6 +99,135 @@
               <span class="icon__desc">A youth recreation and learning center in North Miami Beach made up of a skate park and gym, an entrepreneurship building, and a public commercial building. A timber circulation spine links the three, while vertical fins and deep overhangs work with active cooling to cut energy use.</span>
             </span>
           </a>
+          <div class="viewer" id="viewer-rec" inert>
+            <div class="viewer__inner">
+              <div class="viewer__slides" role="group" aria-label="Images of R+EC" tabindex="0">
+                <figure class="slide">
+                  <div class="slide__media" style="aspect-ratio: 2800 / 1963">
+                    <img class="slide__img" data-src="images/rec/web/rec-01-cover-image.jpg" alt="R+EC cover image: line drawing from above of the three buildings and the spine that links them" width="2800" height="1963" draggable="false">
+                  </div>
+                  <figcaption class="slide__text">
+                    <p class="slide__title">Cover image</p>
+                    <p class="slide__desc">[ADD: description of this image]</p>
+                  </figcaption>
+                </figure>
+                <figure class="slide">
+                  <div class="slide__media" style="aspect-ratio: 2800 / 1813">
+                    <img class="slide__img" data-src="images/rec/web/rec-02-enlarged-section.jpg" alt="R+EC enlarged section drawing" width="2800" height="1813" draggable="false">
+                  </div>
+                  <figcaption class="slide__text">
+                    <p class="slide__title">Enlarged section</p>
+                    <p class="slide__desc">[ADD: description of this image]</p>
+                  </figcaption>
+                </figure>
+                <figure class="slide">
+                  <div class="slide__media" style="aspect-ratio: 1811 / 2800">
+                    <img class="slide__img" data-src="images/rec/web/rec-03-long-wall-section.jpg" alt="R+EC long wall section drawing" width="1811" height="2800" draggable="false">
+                  </div>
+                  <figcaption class="slide__text">
+                    <p class="slide__title">Long wall section</p>
+                    <p class="slide__desc">[ADD: description of this image]</p>
+                  </figcaption>
+                </figure>
+                <figure class="slide">
+                  <div class="slide__media" style="aspect-ratio: 1050 / 1401">
+                    <img class="slide__img" data-src="images/rec/web/rec-04-model-shot-1.jpg" alt="R+EC site model seen from above" width="1050" height="1401" draggable="false">
+                  </div>
+                  <figcaption class="slide__text">
+                    <p class="slide__title">Model</p>
+                    <p class="slide__desc">[ADD: description of this image]</p>
+                  </figcaption>
+                </figure>
+                <figure class="slide">
+                  <div class="slide__media" style="aspect-ratio: 2268 / 2800">
+                    <img class="slide__img" data-src="images/rec/web/rec-06-section-model-1.jpg" alt="R+EC section model, first view" width="2268" height="2800" draggable="false">
+                  </div>
+                  <figcaption class="slide__text">
+                    <p class="slide__title">Section model 1</p>
+                    <p class="slide__desc">[ADD: description of this image]</p>
+                  </figcaption>
+                </figure>
+                <figure class="slide">
+                  <div class="slide__media" style="aspect-ratio: 2552 / 2800">
+                    <img class="slide__img" data-src="images/rec/web/rec-07-section-model-2.jpg" alt="R+EC section model, second view" width="2552" height="2800" draggable="false">
+                  </div>
+                  <figcaption class="slide__text">
+                    <p class="slide__title">Section model 2</p>
+                    <p class="slide__desc">[ADD: description of this image]</p>
+                  </figcaption>
+                </figure>
+                <figure class="slide">
+                  <div class="slide__media" style="aspect-ratio: 2800 / 1600">
+                    <img class="slide__img" data-src="images/rec/web/rec-08-section-model-3.jpg" alt="R+EC section model, third view" width="2800" height="1600" draggable="false">
+                  </div>
+                  <figcaption class="slide__text">
+                    <p class="slide__title">Section model 3</p>
+                    <p class="slide__desc">[ADD: description of this image]</p>
+                  </figcaption>
+                </figure>
+                <div class="slide slide--pair">
+                  <figure class="pair__item">
+                    <div class="slide__media" style="aspect-ratio: 2800 / 496">
+                      <img class="slide__img" data-src="images/rec/web/rec-10-north-elevation.jpg" alt="R+EC north elevation drawing" width="2800" height="496" draggable="false">
+                    </div>
+                    <figcaption class="slide__text">
+                      <p class="slide__title">North elevation</p>
+                      <p class="slide__desc">[ADD: description of this image]</p>
+                    </figcaption>
+                  </figure>
+                  <figure class="pair__item">
+                    <div class="slide__media" style="aspect-ratio: 2800 / 384">
+                      <img class="slide__img" data-src="images/rec/web/rec-11-south-elevation.jpg" alt="R+EC south elevation drawing" width="2800" height="384" draggable="false">
+                    </div>
+                    <figcaption class="slide__text">
+                      <p class="slide__title">South elevation</p>
+                      <p class="slide__desc">[ADD: description of this image]</p>
+                    </figcaption>
+                  </figure>
+                </div>
+                <div class="slide slide--pair">
+                  <figure class="pair__item">
+                    <div class="slide__media" style="aspect-ratio: 2800 / 445">
+                      <img class="slide__img" data-src="images/rec/web/rec-09-east-elevation.jpg" alt="R+EC east elevation drawing" width="2800" height="445" draggable="false">
+                    </div>
+                    <figcaption class="slide__text">
+                      <p class="slide__title">East elevation</p>
+                      <p class="slide__desc">[ADD: description of this image]</p>
+                    </figcaption>
+                  </figure>
+                  <figure class="pair__item">
+                    <div class="slide__media" style="aspect-ratio: 2800 / 401">
+                      <img class="slide__img" data-src="images/rec/web/rec-12-west-elevation.jpg" alt="R+EC west elevation drawing" width="2800" height="401" draggable="false">
+                    </div>
+                    <figcaption class="slide__text">
+                      <p class="slide__title">West elevation</p>
+                      <p class="slide__desc">[ADD: description of this image]</p>
+                    </figcaption>
+                  </figure>
+                </div>
+                <div class="slide slide--pair">
+                  <figure class="pair__item">
+                    <div class="slide__media" style="aspect-ratio: 2800 / 460">
+                      <img class="slide__img" data-src="images/rec/web/rec-14-long-section.jpg" alt="R+EC long section drawing" width="2800" height="460" draggable="false">
+                    </div>
+                    <figcaption class="slide__text">
+                      <p class="slide__title">Long section</p>
+                      <p class="slide__desc">[ADD: description of this image]</p>
+                    </figcaption>
+                  </figure>
+                  <figure class="pair__item">
+                    <div class="slide__media" style="aspect-ratio: 2800 / 323">
+                      <img class="slide__img" data-src="images/rec/web/rec-13-short-section.jpg" alt="R+EC short section drawing" width="2800" height="323" draggable="false">
+                    </div>
+                    <figcaption class="slide__text">
+                      <p class="slide__title">Short section</p>
+                      <p class="slide__desc">[ADD: description of this image]</p>
+                    </figcaption>
+                  </figure>
+                </div>
+              </div>
+            </div>
+          </div>
         </li>
         <li class="icon reveal" data-type="studio">
           <a class="icon__link" href="project-building-ecologies.html">
@@ -106,6 +237,39 @@
               <span class="icon__desc">A modular campus canopy that provides shade and collects rainwater without any excavation. Its aluminum frame and fabric roof drain into concrete base blocks that store the water for campus irrigation.</span>
             </span>
           </a>
+          <div class="viewer" id="viewer-rain-field" inert>
+            <div class="viewer__inner">
+              <div class="viewer__slides" role="group" aria-label="Images of Rain Field" tabindex="0">
+                <figure class="slide">
+                  <div class="slide__media" style="aspect-ratio: 4 / 3">
+                    <div class="slide__img placeholder" role="img" aria-label="Placeholder for an image of Rain Field">[ADD: image of Rain Field]</div>
+                  </div>
+                  <figcaption class="slide__text">
+                    <p class="slide__title">[ADD: title]</p>
+                    <p class="slide__desc">[ADD: description of this image]</p>
+                  </figcaption>
+                </figure>
+                <figure class="slide">
+                  <div class="slide__media" style="aspect-ratio: 4 / 3">
+                    <div class="slide__img placeholder" role="img" aria-label="Placeholder for an image of Rain Field">[ADD: image of Rain Field]</div>
+                  </div>
+                  <figcaption class="slide__text">
+                    <p class="slide__title">[ADD: title]</p>
+                    <p class="slide__desc">[ADD: description of this image]</p>
+                  </figcaption>
+                </figure>
+                <figure class="slide">
+                  <div class="slide__media" style="aspect-ratio: 4 / 3">
+                    <div class="slide__img placeholder" role="img" aria-label="Placeholder for an image of Rain Field">[ADD: image of Rain Field]</div>
+                  </div>
+                  <figcaption class="slide__text">
+                    <p class="slide__title">[ADD: title]</p>
+                    <p class="slide__desc">[ADD: description of this image]</p>
+                  </figcaption>
+                </figure>
+              </div>
+            </div>
+          </div>
         </li>
         <li class="icon reveal" data-type="studio">
           <a class="icon__link" href="project-fishing-market.html">
@@ -115,6 +279,39 @@
               <span class="icon__desc">Ramp &amp; Reel is a fish market on the Miami River that turns an industrial edge into an active public waterfront. Continuous ramps make the entire building accessible and guide visitors through the market toward the river.</span>
             </span>
           </a>
+          <div class="viewer" id="viewer-ramp-reel" inert>
+            <div class="viewer__inner">
+              <div class="viewer__slides" role="group" aria-label="Images of Ramp &amp; Reel Fishing Market" tabindex="0">
+                <figure class="slide">
+                  <div class="slide__media" style="aspect-ratio: 4 / 3">
+                    <div class="slide__img placeholder" role="img" aria-label="Placeholder for an image of Ramp &amp; Reel Fishing Market">[ADD: image of Ramp &amp; Reel Fishing Market]</div>
+                  </div>
+                  <figcaption class="slide__text">
+                    <p class="slide__title">[ADD: title]</p>
+                    <p class="slide__desc">[ADD: description of this image]</p>
+                  </figcaption>
+                </figure>
+                <figure class="slide">
+                  <div class="slide__media" style="aspect-ratio: 4 / 3">
+                    <div class="slide__img placeholder" role="img" aria-label="Placeholder for an image of Ramp &amp; Reel Fishing Market">[ADD: image of Ramp &amp; Reel Fishing Market]</div>
+                  </div>
+                  <figcaption class="slide__text">
+                    <p class="slide__title">[ADD: title]</p>
+                    <p class="slide__desc">[ADD: description of this image]</p>
+                  </figcaption>
+                </figure>
+                <figure class="slide">
+                  <div class="slide__media" style="aspect-ratio: 4 / 3">
+                    <div class="slide__img placeholder" role="img" aria-label="Placeholder for an image of Ramp &amp; Reel Fishing Market">[ADD: image of Ramp &amp; Reel Fishing Market]</div>
+                  </div>
+                  <figcaption class="slide__text">
+                    <p class="slide__title">[ADD: title]</p>
+                    <p class="slide__desc">[ADD: description of this image]</p>
+                  </figcaption>
+                </figure>
+              </div>
+            </div>
+          </div>
         </li>
         <li class="icon reveal" data-type="professional">
           <a class="icon__link" href="project-mercy-university.html">
@@ -124,6 +321,39 @@
               <span class="icon__desc">As a Project Design Intern at Clarke Caton Hintz, I produced demolition plans, proposed floor plans, and reflected ceiling plans for Mercy University. I also built the project's SketchUp model and helped render it in Lumion.</span>
             </span>
           </a>
+          <div class="viewer" id="viewer-mercy" inert>
+            <div class="viewer__inner">
+              <div class="viewer__slides" role="group" aria-label="Images of Mercy University" tabindex="0">
+                <figure class="slide">
+                  <div class="slide__media" style="aspect-ratio: 4 / 3">
+                    <div class="slide__img placeholder" role="img" aria-label="Placeholder for an image of Mercy University">[ADD: image of Mercy University]</div>
+                  </div>
+                  <figcaption class="slide__text">
+                    <p class="slide__title">Clarke Caton Hintz<br>[ADD: brief summary of the image]</p>
+                    <p class="slide__desc">[ADD: what Henri did on this drawing]</p>
+                  </figcaption>
+                </figure>
+                <figure class="slide">
+                  <div class="slide__media" style="aspect-ratio: 4 / 3">
+                    <div class="slide__img placeholder" role="img" aria-label="Placeholder for an image of Mercy University">[ADD: image of Mercy University]</div>
+                  </div>
+                  <figcaption class="slide__text">
+                    <p class="slide__title">Clarke Caton Hintz<br>[ADD: brief summary of the image]</p>
+                    <p class="slide__desc">[ADD: what Henri did on this drawing]</p>
+                  </figcaption>
+                </figure>
+                <figure class="slide">
+                  <div class="slide__media" style="aspect-ratio: 4 / 3">
+                    <div class="slide__img placeholder" role="img" aria-label="Placeholder for an image of Mercy University">[ADD: image of Mercy University]</div>
+                  </div>
+                  <figcaption class="slide__text">
+                    <p class="slide__title">Clarke Caton Hintz<br>[ADD: brief summary of the image]</p>
+                    <p class="slide__desc">[ADD: what Henri did on this drawing]</p>
+                  </figcaption>
+                </figure>
+              </div>
+            </div>
+          </div>
         </li>
         <li class="icon reveal" data-type="built">
           <a class="icon__link" href="project-built-work.html">
@@ -132,6 +362,48 @@
               <span class="icon__name">Built Work</span>
             </span>
           </a>
+          <div class="viewer" id="viewer-built" inert>
+            <div class="viewer__inner">
+              <div class="viewer__slides" role="group" aria-label="Images of Built Work" tabindex="0">
+                <figure class="slide">
+                  <div class="slide__media" style="aspect-ratio: 4 / 3">
+                    <div class="slide__img placeholder" role="img" aria-label="Placeholder for an image of the Pergola">[ADD: image of the Pergola]</div>
+                  </div>
+                  <figcaption class="slide__text">
+                    <p class="slide__title">[ADD: title]</p>
+                    <p class="slide__desc">[ADD: description of this image]</p>
+                  </figcaption>
+                </figure>
+                <figure class="slide">
+                  <div class="slide__media" style="aspect-ratio: 4 / 3">
+                    <div class="slide__img placeholder" role="img" aria-label="Placeholder for an image of the Pergola">[ADD: image of the Pergola]</div>
+                  </div>
+                  <figcaption class="slide__text">
+                    <p class="slide__title">[ADD: title]</p>
+                    <p class="slide__desc">[ADD: description of this image]</p>
+                  </figcaption>
+                </figure>
+                <figure class="slide">
+                  <div class="slide__media" style="aspect-ratio: 4 / 3">
+                    <div class="slide__img placeholder" role="img" aria-label="Placeholder for an image of the Garage Door">[ADD: image of the Garage Door]</div>
+                  </div>
+                  <figcaption class="slide__text">
+                    <p class="slide__title">[ADD: title]</p>
+                    <p class="slide__desc">[ADD: description of this image]</p>
+                  </figcaption>
+                </figure>
+                <figure class="slide">
+                  <div class="slide__media" style="aspect-ratio: 4 / 3">
+                    <div class="slide__img placeholder" role="img" aria-label="Placeholder for an image of the Garage Door">[ADD: image of the Garage Door]</div>
+                  </div>
+                  <figcaption class="slide__text">
+                    <p class="slide__title">[ADD: title]</p>
+                    <p class="slide__desc">[ADD: description of this image]</p>
+                  </figcaption>
+                </figure>
+              </div>
+            </div>
+          </div>
         </li>
       </ul>
 

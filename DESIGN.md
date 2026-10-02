@@ -58,6 +58,14 @@ The home page works like a small browser for the work. From top to bottom:
   - With a mouse: they are hidden at rest and appear on hover or keyboard focus, to the right of the icon and level with its top (grid columns 3 to 8), fading in over 200ms.
   - On phones, and on any touch screen with no hover: they are always visible. On phone they sit below the icon, 16px beneath it; the 64px of white space then runs from the end of the description to the next icon.
   - A project with no description yet shows its name only.
+- Clicking a project opens it in place. Its icon, name and description stay where they are (the name and description now always showing), and a viewer opens beneath them across all twelve grid columns, pushing the projects below it down.
+  - The viewer is one continuous strip: the images sit side by side, all at the same height (a little over half the screen height), each at its own proportions and never cropped, one gutter apart.
+  - Elevations and sections are the exception to the shared height. They are never long panels. Each is scaled down, whole and at its own proportions, to the full visible width of the strip, and they are stacked in pairs, one above the other: North Elevation above South Elevation; East Elevation above West Elevation; Long Section above Short Section. Each pair takes one screen-width of the strip. The two drawings in a pair are 16px apart (measured from the first drawing's caption to the second drawing); pairs are 40px apart on desktop and 32px on phone, slightly more than the gutter between other images. If a project has only one drawing of a pair, it sits alone at the same full width.
+  - The strip scrolls sideways seamlessly. It never stops or snaps on an image. Swipe on touch screens; with a mouse, drag the strip or use the left and right arrow keys, which move it along by most of a screen. The page itself still never scrolls sideways.
+  - Under each image, 8px beneath it: the image's title on the left (15px, weight 500, Ink) and, on the opposite side, a text box with its description (15px, Graphite, line height 1.55, no wider than about 480px). No border. The caption is exactly as wide as its image, never wider: the title starts at the image's left edge and the description is set flush right, ending at the image's right edge. Under a narrow image the description drops below the title, still flush right. Under an image wider than the screen (possible on phones), the caption is as wide as the screen and stays in view while the image is panned.
+  - There are no buttons or links inside an open project: no arrows, no Close, no link to the project page. Nothing sits under the strip.
+  - Only one project is open at a time. Opening another closes the first. Clicking the open project again, or pressing Escape, closes it.
+  - After a project opens, the page scrolls just enough to bring the whole viewer into view.
 - When a filter is chosen, the projects of that type move to the top of the column, directly under the toolbar, in their usual order. The other projects follow beneath them, faded to 20% opacity, and cannot be clicked. "All" puts every project back in its usual order.
 - One full-bleed lead image, 21:9 on desktop and 4:3 on phone, 120px below the last icon (64px on phone).
 - Text links to Projects and About, 64px below the image.
@@ -98,6 +106,7 @@ Expressive but light. Plain CSS and a small amount of plain JavaScript. No anima
 - Full-bleed images move slightly slower than the scroll, never more than 40px of offset.
 - The phone menu overlay fades in over 250ms.
 - On the home page, projects outside the chosen filter fade to 20% opacity over 400ms. This shows which projects belong to each type of work. The move to the top of the column is immediate, with no animation.
+- On the home page, a project's viewer opens over 400ms (ease-out): it grows to its full height while fading in and scaling up from 96%. It closes the same way in reverse. The arrow keys glide the strip of images sideways.
 - If a visitor's device is set to reduce motion, all movement is switched off and everything simply appears in place.
 - Test for every movement: does it help someone understand a project? If it is only decoration, it is cut. The one exception is the intro screen, below.
 

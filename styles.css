@@ -497,18 +497,149 @@ button {
   row-gap: var(--section);
 }
 
-.field .icon { grid-column: 1 / span 8; }
+.field .icon { grid-column: 1 / -1; }
 
 .field .icon__link {
   display: grid;
   grid-template-columns: repeat(8, minmax(0, 1fr));
   column-gap: var(--gutter);
   align-items: start;
+  /* Eight of the twelve columns */
+  width: calc((100% - 11 * var(--gutter)) / 12 * 8 + 7 * var(--gutter));
 }
 
 .field .icon__box { grid-column: 1 / span 2; }
 
 .field .icon__text { grid-column: 3 / -1; }
+
+/* An open project keeps its name and description on show */
+.field .icon.is-open .icon__text { opacity: 1; }
+
+/* Viewer: closed until its project is clicked. It grows to its full height
+   while fading in and scaling up from 96%, pushing the projects below down. */
+.viewer {
+  display: grid;
+  grid-template-rows: 0fr;
+  scroll-margin: calc(var(--bar) + 16px) 0 24px;
+  transition: grid-template-rows 400ms ease-out;
+}
+
+.icon.is-open .viewer { grid-template-rows: 1fr; }
+
+/* The 4px of padding leaves room for focus outlines inside the clipped box */
+.viewer__inner {
+  min-height: 0;
+  margin: 0 -4px;
+  padding: 0 4px 4px;
+  overflow: hidden;
+  opacity: 0;
+  transform: scale(0.96);
+  transform-origin: top left;
+  transition: opacity 400ms ease-out, transform 400ms ease-out;
+}
+
+.icon.is-open .viewer__inner {
+  opacity: 1;
+  transform: none;
+}
+
+/* One continuous strip of images that scrolls sideways without stopping
+   on each one. Only the strip scrolls sideways; the page never does. */
+.viewer__slides {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--gutter);
+  margin-top: 40px;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scrollbar-width: none;
+  /* Lets the text under a very wide image be sized to the visible strip */
+  container-type: inline-size;
+}
+
+.viewer__slides::-webkit-scrollbar { display: none; }
+
+/* With a mouse the strip can be dragged */
+@media (hover: hover) {
+  .viewer__slides { cursor: grab; }
+
+  .viewer__slides.is-dragging {
+    cursor: grabbing;
+    user-select: none;
+  }
+}
+
+.slide { flex: 0 0 auto; }
+
+/* Every image is the same height and keeps its own proportions (set on
+   each one in index.html), so its width follows. Never cropped. */
+.slide__media { height: min(54vh, 46vw); }
+
+.slide__img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.slide__img:not([src]):not(.placeholder) { visibility: hidden; }
+
+.slide .placeholder { display: grid; }
+
+/* Under each image: its title on the left, its text box on the opposite
+   side. Under a narrow image the text drops below the title. Under an image
+   wider than the strip, both stay in view while the image is panned. */
+.slide__text {
+  position: sticky;
+  left: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 4px var(--gutter);
+  /* As wide as its image (or as the visible strip, if the image is wider),
+     without ever making the image's column wider */
+  width: 0;
+  min-width: min(100%, 100cqw);
+  margin-top: 8px;
+  font-size: 15px;
+}
+
+.slide__title {
+  font-weight: 500;
+  line-height: 1.55;
+}
+
+/* Flush right, so the description ends at the image's right edge */
+.slide__desc {
+  flex: 1 1 260px;
+  max-width: 480px;
+  margin-left: auto;
+  line-height: 1.55;
+  color: var(--graphite);
+  text-align: right;
+}
+
+/* Elevations and sections: scaled to the full visible width of the strip
+   and stacked in pairs, one above the other. Each pair is one screen-width
+   of the strip. See DESIGN.md, "Home page". */
+.slide--pair {
+  flex-basis: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.slide--pair .slide__media {
+  width: 100%;
+  height: auto;
+}
+
+/* Slightly more space between pairs than between other images */
+.slide--pair + .slide--pair { margin-left: 16px; }
+
+@media (max-width: 1024px) {
+  .field .icon__link { width: 100%; }
+}
 
 /* Projects outside the chosen filter fade and drop below the chosen ones */
 .js .field .icon.is-dim {
@@ -533,9 +664,14 @@ button {
   .pagehead { padding-bottom: 40px; }
 
   /* Phone: the name and description sit below the icon and always show */
-  .field .icon { grid-column: 1 / -1; }
-
   .field .icon__link { display: block; }
+
+  .slide__media { height: min(48vh, 86vw); }
+
+  /* Too narrow for side by side: the text box always sits under the title */
+  .slide__desc { flex-basis: 100%; }
+
+  .viewer__slides { margin-top: 24px; }
 
   .field .icon__box {
     width: calc((100% - 3 * var(--gutter)) / 4 * 2 + var(--gutter));

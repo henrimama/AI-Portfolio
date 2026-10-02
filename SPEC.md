@@ -15,6 +15,16 @@ login.html (never gated)
 index.html (home)
 - Purpose: in ten seconds, show a confident, precise designer who understands the business.
 - Content: menu; "Henri Maman" with the word "Portfolio" directly beneath it; a toolbar that filters the projects by type (All, Studio Work, Professional Work, Built Work) and shows a count; the project icons, stacked in a single column, each linking to its project page and each with the project's name and short description (shown on hover with a mouse, always shown on phones); one full-bleed lead image [ADD: image of Henri's strongest project]; links to Projects and About. See DESIGN.md, "Home page".
+- Clicking a project on the home page expands it in place (it does not leave the page):
+  - The project grows to the full width of the grid with a smooth fade and scale, and pushes the projects below it down.
+  - Inside, the project's images sit side by side in one continuous strip that scrolls sideways seamlessly. It does not stop on each image and there are no separate pages. Swipe on phones; drag, or the left and right arrow keys, on desktop. There are no buttons inside an open project.
+  - Under each image: its title on the left, and on the opposite side a text box with Henri's description of that image [ADD: a description for each image, from Henri].
+  - Only one project is open at a time. Clicking a different project closes the open one back to its original size and opens the new one the same way. Clicking the open project again, or the Escape key, closes it.
+  - It works the same for all five projects. A project with no images yet shows grey [ADD: image of ...] boxes in the viewer.
+  - The full project pages are reached from the Projects page. Without JavaScript, clicking a project on the home page goes straight to its project page.
+  - Elevations and sections are scaled to fit the visible width, never cropped, and stacked in pairs: North Elevation above South Elevation, East Elevation above West Elevation, Long Section above Short Section (see DESIGN.md, "Home page"). If a project is missing one drawing of a pair, the one it has stays in place.
+  - R+EC images, in order: cover image, enlarged section, long wall section, model, section model 1, 2 and 3, then the three pairs: north and south elevations, east and west elevations, long and short sections. R+EC has all six drawings. No other project has elevations or sections yet. Titles are taken from Henri's file names [ADD: titles in Henri's words, if he wants different ones].
+  - Mercy University keeps its three-part caption: the credit "Clarke Caton Hintz" and the summary of the image on the left, Henri's contribution on the opposite side.
 - Home page descriptions, in Henri's words:
   - R+EC: "A youth recreation and learning center in North Miami Beach made up of a skate park and gym, an entrepreneurship building, and a public commercial building. A timber circulation spine links the three, while vertical fins and deep overhangs work with active cooling to cut energy use."
   - Rain Field: "A modular campus canopy that provides shade and collects rainwater without any excavation. Its aluminum frame and fabric roof drain into concrete base blocks that store the water for campus irrigation."
@@ -106,6 +116,7 @@ Never invent facts, dimensions, dates or names that Henri has not given. Ask him
 
 ## Images
 - Henri's files go in a folder called images. Project icons go in images/icons as SVG, one per project page (five in total, one shared icon for Built Work).
+- R+EC: Henri's original PNG files are in images/rec. The site shows web-sized JPEG copies from images/rec/web (longest side 2800px, each under 500 KB). The originals are not used by any page.
 - Where there is no image yet, use a plain grey box labelled [ADD: image of ...].
 - Every image has alt text describing what it shows.
 
