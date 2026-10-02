@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" data-login>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Log in: Henri Maman</title>
+  <meta name="description" content="Log in to see the architecture portfolio of Henri Maman.">
+  <meta property="og:title" content="Log in: Henri Maman">
+  <meta property="og:description" content="Log in to see the architecture portfolio of Henri Maman.">
+  <!-- [ADD: share image] images/share.jpg does not exist yet -->
+  <meta property="og:image" content="images/share.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script>document.documentElement.classList.add('js');</script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" defer></script>
+  <script src="supabase-config.js" defer></script>
+  <script src="auth.js" defer></script>
+</head>
+<body class="login">
+
+  <header class="login__bar">
+    <h1 class="bar__name">Henri Maman</h1>
+  </header>
+
+  <main class="login__main">
+    <div class="login__box">
+      <form class="form" id="auth-form" novalidate>
+        <label for="email">Email</label>
+        <input id="email" name="email" type="email" autocomplete="email" required>
+        <label for="password">Password</label>
+        <input id="password" name="password" type="password" autocomplete="current-password" required>
+        <button type="submit" class="form__submit">Log in</button>
+        <button type="button" class="form__switch">No account? Sign up</button>
+      </form>
+      <p class="form__message" role="status" hidden></p>
+      <p class="form__error" role="alert" hidden></p>
+    </div>
+  </main>
+
+</body>
+</html>

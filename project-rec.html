@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en" class="gate">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>R+EC: Henri Maman</title>
+  <meta name="description" content="R+EC, a studio project by Henri Maman for ARC 306 with Prof. Carie Penabad.">
+  <meta property="og:title" content="R+EC: Henri Maman">
+  <meta property="og:description" content="R+EC, a studio project by Henri Maman for ARC 306 with Prof. Carie Penabad.">
+  <!-- [ADD: share image] images/share.jpg does not exist yet -->
+  <meta property="og:image" content="images/share.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script>document.documentElement.classList.add('js');</script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" defer></script>
+  <script src="supabase-config.js" defer></script>
+  <script src="auth.js" defer></script>
+</head>
+<body>
+
+  <header class="bar">
+    <div class="bar__inner">
+      <a class="bar__name" href="index.html">Henri Maman</a>
+      <nav class="bar__nav" aria-label="Main">
+        <a href="projects.html">Projects</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+        <a href="login.html" data-logout>Log out</a>
+      </nav>
+      <button type="button" class="bar__menu" aria-expanded="false" aria-controls="menu">Menu</button>
+    </div>
+  </header>
+
+  <div class="overlay" id="menu" role="dialog" aria-modal="true" aria-label="Menu">
+    <div class="overlay__top">
+      <a class="bar__name" href="index.html">Henri Maman</a>
+      <button type="button" class="overlay__close">Close</button>
+    </div>
+    <nav class="overlay__nav" aria-label="Menu">
+      <a href="projects.html">Projects</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="login.html" data-logout>Log out</a>
+    </nav>
+  </div>
+
+  <main>
+
+    <header class="phead grid">
+      <div class="phead__icon placeholder" aria-hidden="true">[ADD: icon for R+EC]</div>
+      <div class="phead__text">
+        <h1 class="display">R+EC</h1>
+        <p class="caption phead__context">ARC 306, Prof. Carie Penabad, [ADD: year]</p>
+      </div>
+    </header>
+
+    <div class="lead reveal">
+      <div class="lead__media placeholder" role="img" aria-label="Placeholder for the lead image of R+EC">[ADD: lead image of R+EC]</div>
+    </div>
+
+    <section class="pbody grid">
+      <div class="pbody__text measure">
+        <p>[ADD: short description in Henri's words]</p>
+      </div>
+      <div class="facts">
+        <h2 class="visually-hidden">Project facts</h2>
+        <p class="caption">[ADD: project facts: program, site, size, role, team, duration]</p>
+      </div>
+    </section>
+
+    <!-- Drawings and images. Three placeholder frames for now:
+         [ADD: the real sequence of drawings and images, with captions] -->
+    <section class="sequence grid" aria-label="Drawings and images">
+      <figure class="figure figure--a reveal">
+        <div class="figure__img placeholder" role="img" aria-label="Placeholder for a drawing or image of R+EC">[ADD: image of R+EC]</div>
+        <figcaption class="caption"><span>[ADD: caption]</span></figcaption>
+      </figure>
+      <figure class="figure figure--b reveal">
+        <div class="figure__img placeholder" role="img" aria-label="Placeholder for a drawing or image of R+EC">[ADD: image of R+EC]</div>
+        <figcaption class="caption"><span>[ADD: caption]</span></figcaption>
+      </figure>
+      <figure class="figure figure--c reveal">
+        <div class="figure__img placeholder" role="img" aria-label="Placeholder for a drawing or image of R+EC">[ADD: image of R+EC]</div>
+        <figcaption class="caption"><span>[ADD: caption]</span></figcaption>
+      </figure>
+    </section>
+
+    <nav class="next grid page-end" aria-label="Next project">
+      <a class="textlink" href="project-building-ecologies.html">Next project: Building Ecologies Canopy</a>
+    </nav>
+
+  </main>
+
+  <script src="motion.js" defer></script>
+</body>
+</html>

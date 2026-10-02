@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en" class="gate">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Henri Maman: Portfolio</title>
+  <meta name="description" content="Architecture portfolio of Henri Maman, B.Arch student at the University of Miami: studio, professional and built work.">
+  <meta property="og:title" content="Henri Maman: Portfolio">
+  <meta property="og:description" content="Architecture portfolio of Henri Maman, B.Arch student at the University of Miami: studio, professional and built work.">
+  <!-- [ADD: share image] images/share.jpg does not exist yet -->
+  <meta property="og:image" content="images/share.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script>document.documentElement.classList.add('js');</script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" defer></script>
+  <script src="supabase-config.js" defer></script>
+  <script src="auth.js" defer></script>
+</head>
+<body>
+
+  <header class="bar">
+    <div class="bar__inner">
+      <a class="bar__name" href="index.html">Henri Maman</a>
+      <nav class="bar__nav" aria-label="Main">
+        <a href="projects.html">Projects</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+        <a href="login.html" data-logout>Log out</a>
+      </nav>
+      <button type="button" class="bar__menu" aria-expanded="false" aria-controls="menu">Menu</button>
+    </div>
+  </header>
+
+  <div class="overlay" id="menu" role="dialog" aria-modal="true" aria-label="Menu">
+    <div class="overlay__top">
+      <a class="bar__name" href="index.html">Henri Maman</a>
+      <button type="button" class="overlay__close">Close</button>
+    </div>
+    <nav class="overlay__nav" aria-label="Menu">
+      <a href="projects.html">Projects</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="login.html" data-logout>Log out</a>
+    </nav>
+  </div>
+
+  <main>
+
+    <section class="pagehead grid">
+      <div class="pagehead__text">
+        <h1 class="display">Henri Maman</h1>
+        <p class="subtitle">Portfolio</p>
+      </div>
+    </section>
+
+    <!-- The toolbar filters the work by type and switches between the
+         icon field and the list. See DESIGN.md, "Home page". -->
+    <section aria-label="Projects">
+
+      <div class="toolbar grid">
+        <div class="toolbar__filters" role="group" aria-label="Filter projects by type">
+          <button type="button" class="chip" data-filter="all" aria-pressed="true">All</button>
+          <button type="button" class="chip" data-filter="studio" aria-pressed="false">Studio Work</button>
+          <button type="button" class="chip" data-filter="professional" aria-pressed="false">Professional Work</button>
+          <button type="button" class="chip" data-filter="built" aria-pressed="false">Built Work</button>
+        </div>
+        <div class="toolbar__view" role="group" aria-label="View">
+          <button type="button" class="chip" data-view="icons" aria-pressed="true">Icons</button>
+          <button type="button" class="chip" data-view="list" aria-pressed="false">List</button>
+        </div>
+        <p class="toolbar__status caption" aria-live="polite">5 of 5 projects</p>
+      </div>
+
+      <ul class="field grid" id="view-icons">
+        <li class="icon reveal" data-type="studio">
+          <a class="icon__link" href="project-rec.html">
+            <span class="icon__box placeholder" aria-hidden="true">[ADD: icon for R+EC]</span>
+            <span class="icon__name">R+EC</span>
+          </a>
+        </li>
+        <li class="icon reveal" data-type="studio">
+          <a class="icon__link" href="project-building-ecologies.html">
+            <span class="icon__box placeholder" aria-hidden="true">[ADD: icon for Building Ecologies Canopy]</span>
+            <span class="icon__name">Building Ecologies Canopy</span>
+          </a>
+        </li>
+        <li class="icon reveal" data-type="studio">
+          <a class="icon__link" href="project-fishing-market.html">
+            <span class="icon__box placeholder" aria-hidden="true">[ADD: icon for Fishing Market]</span>
+            <span class="icon__name">Fishing Market</span>
+          </a>
+        </li>
+        <li class="icon reveal" data-type="professional">
+          <a class="icon__link" href="project-mercy-university.html">
+            <span class="icon__box placeholder" aria-hidden="true">[ADD: icon for Mercy University]</span>
+            <span class="icon__name">Mercy University</span>
+          </a>
+        </li>
+        <li class="icon reveal" data-type="built">
+          <a class="icon__link" href="project-built-work.html">
+            <span class="icon__box placeholder" aria-hidden="true">[ADD: icon for Built Work]</span>
+            <span class="icon__name">Built Work</span>
+          </a>
+        </li>
+      </ul>
+
+      <div class="listwrap grid" id="view-list" hidden>
+        <table class="list">
+          <caption class="visually-hidden">Projects</caption>
+          <thead>
+            <tr>
+              <th scope="col">Project</th>
+              <th scope="col">Type</th>
+              <th scope="col">Context</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr data-type="studio">
+              <th scope="row"><a class="textlink" href="project-rec.html">R+EC</a></th>
+              <td>Studio Work</td>
+              <td>ARC 306, Prof. Carie Penabad</td>
+            </tr>
+            <tr data-type="studio">
+              <th scope="row"><a class="textlink" href="project-building-ecologies.html">Building Ecologies Canopy</a></th>
+              <td>Studio Work</td>
+              <td>ARC 407</td>
+            </tr>
+            <tr data-type="studio">
+              <th scope="row"><a class="textlink" href="project-fishing-market.html">Fishing Market</a></th>
+              <td>Studio Work</td>
+              <td>ARC 204, Prof. Pablo Duenas</td>
+            </tr>
+            <tr data-type="professional">
+              <th scope="row"><a class="textlink" href="project-mercy-university.html">Mercy University</a></th>
+              <td>Professional Work</td>
+              <td>Clarke Caton Hintz, Project Design Intern</td>
+            </tr>
+            <tr data-type="built">
+              <th scope="row"><a class="textlink" href="project-built-work.html">Built Work</a></th>
+              <td>Built Work</td>
+              <td>Pergola, France. Garage Door, Princeton, New Jersey</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+    </section>
+
+    <div class="lead lead--band reveal">
+      <div class="lead__media placeholder" role="img" aria-label="Placeholder for an image of Henri's strongest project">[ADD: image of Henri's strongest project]</div>
+    </div>
+
+    <section class="links grid page-end" aria-label="More">
+      <div class="links__inner">
+        <a class="textlink" href="projects.html">Projects</a>
+        <a class="textlink" href="about.html">About</a>
+      </div>
+    </section>
+
+  </main>
+
+  <script src="motion.js" defer></script>
+  <script src="home.js" defer></script>
+</body>
+</html>

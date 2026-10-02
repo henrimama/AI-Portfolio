@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en" class="gate">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Projects: Henri Maman</title>
+  <meta name="description" content="Every project by Henri Maman in one place: studio work, professional work and built work.">
+  <meta property="og:title" content="Projects: Henri Maman">
+  <meta property="og:description" content="Every project by Henri Maman in one place: studio work, professional work and built work.">
+  <!-- [ADD: share image] images/share.jpg does not exist yet -->
+  <meta property="og:image" content="images/share.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script>document.documentElement.classList.add('js');</script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" defer></script>
+  <script src="supabase-config.js" defer></script>
+  <script src="auth.js" defer></script>
+</head>
+<body>
+
+  <header class="bar">
+    <div class="bar__inner">
+      <a class="bar__name" href="index.html">Henri Maman</a>
+      <nav class="bar__nav" aria-label="Main">
+        <a href="projects.html" aria-current="page">Projects</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+        <a href="login.html" data-logout>Log out</a>
+      </nav>
+      <button type="button" class="bar__menu" aria-expanded="false" aria-controls="menu">Menu</button>
+    </div>
+  </header>
+
+  <div class="overlay" id="menu" role="dialog" aria-modal="true" aria-label="Menu">
+    <div class="overlay__top">
+      <a class="bar__name" href="index.html">Henri Maman</a>
+      <button type="button" class="overlay__close">Close</button>
+    </div>
+    <nav class="overlay__nav" aria-label="Menu">
+      <a href="projects.html" aria-current="page">Projects</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="login.html" data-logout>Log out</a>
+    </nav>
+  </div>
+
+  <main>
+
+    <section class="pagehead grid">
+      <div class="pagehead__text">
+        <h1 class="display">Projects</h1>
+      </div>
+    </section>
+
+    <div class="page-end">
+    <section class="group">
+      <div class="grid">
+        <h2 class="h2 group__title">Studio Work</h2>
+      </div>
+
+      <article class="entry grid">
+        <a class="entry__icon icon__link" href="project-rec.html" aria-hidden="true" tabindex="-1">
+          <span class="icon__box placeholder">[ADD: icon for R+EC]</span>
+        </a>
+        <div class="entry__text">
+          <h3 class="h3"><a class="textlink" href="project-rec.html">R+EC</a></h3>
+          <p class="caption">ARC 306, Prof. Carie Penabad</p>
+          <p class="caption">[ADD: year]</p>
+          <p class="entry__desc">[ADD: one line of description]</p>
+        </div>
+        <div class="entry__image placeholder reveal" role="img" aria-label="Placeholder for an image of R+EC">[ADD: image of R+EC]</div>
+      </article>
+
+      <article class="entry grid">
+        <a class="entry__icon icon__link" href="project-building-ecologies.html" aria-hidden="true" tabindex="-1">
+          <span class="icon__box placeholder">[ADD: icon for Building Ecologies Canopy]</span>
+        </a>
+        <div class="entry__text">
+          <h3 class="h3"><a class="textlink" href="project-building-ecologies.html">Building Ecologies Canopy</a></h3>
+          <p class="caption">ARC 407</p>
+          <p class="caption">[ADD: year]</p>
+          <p class="entry__desc">A modular shade and rainwater canopy on campus.</p>
+        </div>
+        <div class="entry__image placeholder reveal" role="img" aria-label="Placeholder for an image of Building Ecologies Canopy">[ADD: image of Building Ecologies Canopy]</div>
+      </article>
+
+      <article class="entry grid">
+        <a class="entry__icon icon__link" href="project-fishing-market.html" aria-hidden="true" tabindex="-1">
+          <span class="icon__box placeholder">[ADD: icon for Fishing Market]</span>
+        </a>
+        <div class="entry__text">
+          <h3 class="h3"><a class="textlink" href="project-fishing-market.html">Fishing Market</a></h3>
+          <p class="caption">ARC 204, Prof. Pablo Duenas, 2nd year studio</p>
+          <p class="caption">[ADD: calendar year]</p>
+          <p class="entry__desc">[ADD: one line of description]</p>
+        </div>
+        <div class="entry__image placeholder reveal" role="img" aria-label="Placeholder for an image of Fishing Market">[ADD: image of Fishing Market]</div>
+      </article>
+    </section>
+
+    <section class="group">
+      <div class="grid">
+        <h2 class="h2 group__title">Professional Work</h2>
+      </div>
+
+      <article class="entry grid">
+        <a class="entry__icon icon__link" href="project-mercy-university.html" aria-hidden="true" tabindex="-1">
+          <span class="icon__box placeholder">[ADD: icon for Mercy University]</span>
+        </a>
+        <div class="entry__text">
+          <h3 class="h3"><a class="textlink" href="project-mercy-university.html">Mercy University</a></h3>
+          <p class="caption">Clarke Caton Hintz, Project Design Intern</p>
+          <p class="caption">[ADD: year]</p>
+          <p class="entry__desc">[ADD: one line of description]</p>
+        </div>
+        <div class="entry__image placeholder reveal" role="img" aria-label="Placeholder for an image of Mercy University">[ADD: image of Mercy University]</div>
+      </article>
+    </section>
+
+    <section class="group">
+      <div class="grid">
+        <h2 class="h2 group__title">Built Work</h2>
+      </div>
+
+      <article class="entry grid">
+        <a class="entry__icon icon__link" href="project-built-work.html" aria-hidden="true" tabindex="-1">
+          <span class="icon__box placeholder">[ADD: icon for Built Work]</span>
+        </a>
+        <div class="entry__text">
+          <h3 class="h3"><a class="textlink" href="project-built-work.html">Built Work</a></h3>
+          <p class="caption">Pergola, France. Garage Door, Princeton, New Jersey</p>
+          <p class="caption">[ADD: years]</p>
+          <p class="entry__desc">[ADD: one line of description]</p>
+        </div>
+        <div class="entry__image placeholder reveal" role="img" aria-label="Placeholder for an image of Built Work">[ADD: image of Built Work]</div>
+      </article>
+    </section>
+    </div>
+
+  </main>
+
+  <script src="motion.js" defer></script>
+</body>
+</html>
