@@ -280,6 +280,16 @@ button {
   transition: transform 200ms ease-out;
 }
 
+.icon__box:not(.placeholder) { display: block; }
+
+/* A drawing used as the icon: whole, centred in the square, no background */
+.icon__img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
 /* Name and short description: hidden at rest, shown on hover or focus */
 .icon__text {
   display: block;

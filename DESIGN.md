@@ -96,6 +96,7 @@ The home page works like a small browser for the work. From top to bottom:
 ## Project icons
 - One icon per project page (five in total), drawn by Henri, based on that project's form or main idea.
 - Simple, single line weight, Ink on Paper, saved as SVG in images/icons.
+- R+EC is the exception: its icon on the home page is its cover drawing (the line drawing of the three buildings with "R+EC" written on the ground), saved as images/icons/rec.jpg. It is shown whole, at its own proportions, centred in the square icon box, with no grey background.
 - On hover or tap: the icon takes on the project accent colour and lifts 4px over 200ms. On the home page the project name and description appear with it (see Home page).
 - Icons appear on the home page (stacked in one column, see Home page), on the projects page and beside the title of each project page.
 
