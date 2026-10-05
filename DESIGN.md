@@ -115,7 +115,7 @@ Expressive but light. Plain CSS and a small amount of plain JavaScript. No anima
 - Test for every movement: does it help someone understand a project? If it is only decoration, it is cut. The one exception is the intro screen, below.
 
 ## Intro screen
-- Shown once, right after log-in, before the home page. It is not shown when the home page is refreshed, opened from the menu, or opened by a visitor who was already signed in.
+- Shown before the home page on two occasions: right after log-in, and every time "Henri Maman" in the header is clicked, from any page including the home page itself. It is not shown when the home page is refreshed, reached with the browser's back button, or opened by a visitor who was already signed in.
 - A full-screen Ink background with "Henri Maman" in Paper at Display size and "Portfolio" in Paper at Heading 3 size beneath it, both centred on the screen.
 - About 2.5 seconds in total: the text fades in over 600ms and holds until 1.5 seconds; then the ending plays over 1 second.
 - The ending is one continuous motion, not a cut:
@@ -151,5 +151,5 @@ First person, plain and short. Say what the project is, what it does and why, th
 1. Never add colour to the interface beyond this palette. Colour comes from the work.
 2. Never use pop-ups, cookie walls, auto-playing video or sound.
 3. Never set text smaller than 15px or below 4.5:1 contrast with its background.
-4. Never add animation that does not help someone understand a project, that needs a library, or that slows the page down. The only exception is the intro screen shown once after log-in.
+4. Never add animation that does not help someone understand a project, that needs a library, or that slows the page down. The only exception is the intro screen, shown after log-in and when "Henri Maman" in the header is clicked.
 5. Never copy BIG's or anyone else's icons, logo, fonts, text or images.

@@ -63,4 +63,15 @@
   document.addEventListener('keydown', function (event) {
     if (event.key === 'Escape' && overlay.classList.contains('is-open')) setMenu(false);
   });
+
+  // Clicking "Henri Maman" in the header goes to the home page and plays the
+  // intro screen there. This leaves the same note for the home page that
+  // auth.js leaves after log-in. See DESIGN.md, "Intro screen".
+  document.querySelectorAll('a.bar__name').forEach(function (link) {
+    link.addEventListener('click', function (event) {
+      // Not when the click opens a new tab or window.
+      if (event.metaKey || event.ctrlKey || event.shiftKey) return;
+      try { sessionStorage.setItem('intro', '1'); } catch (error) {}
+    });
+  });
 })();
