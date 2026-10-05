@@ -510,11 +510,16 @@ button {
 }
 
 /* Projects: one vertical column, evenly spaced. Each project is a row on the
-   page grid: the icon on columns 1 to 4, one empty column as a gap, then the
-   name and description on columns 6 to 11, centred to the icon's height. */
+   page grid. The icon's place in the grid is the left edge (columns 1 to 4),
+   but at rest it is shifted to the centre of the page. On hover, on focus
+   and while the project is open it glides back to the left, and the name and
+   description fade in on columns 6 to 11, centred to the icon's height. */
 .field {
   margin-top: 40px;
   row-gap: var(--section);
+  /* From the left edge to the centre: four columns and four gutters, which
+     is the icon's own width plus one gutter */
+  --icon-shift: calc(100% + var(--gutter));
 }
 
 .field .icon { grid-column: 1 / -1; }
@@ -526,16 +531,30 @@ button {
   align-items: center;
 }
 
-.field .icon__box { grid-column: 1 / span 4; }
+.field .icon__box {
+  grid-column: 1 / span 4;
+  transform: translateX(var(--icon-shift));
+  transition: transform 400ms ease-out;
+}
 
-/* Hidden at rest; shown on hover or focus (the shared icon rules above) and
-   for as long as the project is open */
-.field .icon__text { grid-column: 6 / span 6; }
+.field .icon__text {
+  grid-column: 6 / span 6;
+  transition: opacity 400ms ease-out;
+}
+
+.field .icon__link:hover .icon__box,
+.field .icon__link:focus-visible .icon__box,
+.field .icon__link:active .icon__box,
+.field .icon.is-open .icon__box {
+  transform: none;
+}
 
 .field .icon.is-open .icon__text { opacity: 1; }
 
-/* Touch screens have no hover: only an open project shows its text */
+/* Touch screens have no hover: the icon moves, and the text shows, only
+   while the project is open */
 @media (hover: none) {
+  .field .icon:not(.is-open) .icon__box { transform: translateX(var(--icon-shift)); }
   .field .icon:not(.is-open) .icon__text { opacity: 0; }
 }
 
@@ -661,8 +680,11 @@ button {
 /* Slightly more space between pairs than between other images */
 .slide--pair + .slide--pair { margin-left: 16px; }
 
-/* Tablet: icon on columns 1 to 4, text on columns 5 to 8, 40px apart */
+/* Tablet: eight columns, so the centre is two columns and two gutters from
+   the left. Once moved, icon on columns 1 to 4, text on 5 to 8, 40px apart. */
 @media (max-width: 1024px) {
+  .field { --icon-shift: calc(50% + var(--gutter) / 2); }
+
   .field .icon__text {
     grid-column: 5 / -1;
     margin-left: 16px;
@@ -695,6 +717,12 @@ button {
      description appear directly below it only while the project is open,
      and take up no room otherwise. */
   .field .icon__link { display: block; }
+
+  /* The icon already fills the width, so it never moves */
+  .field .icon .icon__box,
+  .field .icon:not(.is-open) .icon__box {
+    transform: none;
+  }
 
   .field .icon__text {
     margin-top: 16px;
