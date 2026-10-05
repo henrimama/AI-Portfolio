@@ -14,7 +14,7 @@ login.html (never gated)
 
 index.html (home)
 - Purpose: in ten seconds, show a confident, precise designer who understands the business.
-- Content: menu; "Henri Maman" with the word "Portfolio" directly beneath it; a toolbar that filters the projects by type (All, Studio Work, Professional Work, Built Work) and shows a count; the project icons, stacked in a single column, each linking to its project page and each with the project's name and short description (shown on hover with a mouse, always shown on phones); one full-bleed lead image [ADD: image of Henri's strongest project]; links to Contact and About. See DESIGN.md, "Home page".
+- Content: menu; "Henri Maman" with the word "Portfolio" directly beneath it; a toolbar that filters the projects by type (All, Studio Work, Professional Work, Built Work) and shows a count; the project icons, stacked in a single column, each linking to its project page and each with the project's name and short description (shown only on hover or while the project is open; on phones, only while it is open); one full-bleed lead image [ADD: image of Henri's strongest project]; links to Contact and About. See DESIGN.md, "Home page".
 - Clicking a project on the home page expands it in place (it does not leave the page):
   - The project grows to the full width of the grid with a smooth fade and scale, and pushes the projects below it down.
   - Inside, the project's images sit side by side in one continuous strip that scrolls sideways seamlessly. It does not stop on each image and there are no separate pages. Swipe on phones; drag, or the left and right arrow keys, on desktop. There are no buttons inside an open project.
@@ -122,7 +122,8 @@ Never invent facts, dimensions, dates or names that Henri has not given. Ask him
 
 ## Images
 - Henri's files go in a folder called images. Project icons go in images/icons as SVG, one per project page (six in total, one shared icon for Built Work).
-- Deering Estate: Henri's original files are in images/de. Its icon on the home page is a web-sized copy of de-03-p-section.jpg, saved as images/icons/deering.jpg. The originals are not used by any page.
+- Deering Estate: Henri's original files are in images/de. The site shows web-sized JPEG copies from images/de/web (longest side 2800px, each under 500 KB). Its icon on the home page is a web-sized copy of the section perspective render (now de-07-p-section.jpg), saved as images/icons/deering.jpg. The originals are not used by any page.
+- Deering Estate images, in order: south elevation above gallery elevation; long section above long section 2; transect; passive diagram. The render is the icon and is not repeated in the strip. Titles are taken from Henri's file names. [ADD: a description for each image, from Henri]
 - R+EC: Henri's original PNG files are in images/rec. The site shows web-sized JPEG copies from images/rec/web (longest side 2800px, each under 500 KB). The originals are not used by any page.
 - Where there is no image yet, use a plain grey box labelled [ADD: image of ...].
 - Every image has alt text describing what it shows.

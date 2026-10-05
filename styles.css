@@ -509,8 +509,9 @@ button {
   color: var(--paper);
 }
 
-/* Project icons: one vertical column, evenly spaced, each icon four grid
-   columns wide and centred on the page. */
+/* Projects: one vertical column, evenly spaced. Each project is a row on the
+   page grid: the icon on columns 1 to 4, one empty column as a gap, then the
+   name and description on columns 6 to 11, centred to the icon's height. */
 .field {
   margin-top: 40px;
   row-gap: var(--section);
@@ -518,56 +519,24 @@ button {
 
 .field .icon { grid-column: 1 / -1; }
 
-/* The link is exactly as wide as the icon: four of the twelve columns */
 .field .icon__link {
-  position: relative;
-  width: calc((100% - 11 * var(--gutter)) / 12 * 4 + 3 * var(--gutter));
-  margin-inline: auto;
+  display: grid;
+  grid-template-columns: repeat(var(--cols), minmax(0, 1fr));
+  column-gap: var(--gutter);
+  align-items: center;
 }
 
-/* The icon stays still on hover (no lift on the home page) */
-.field .icon__link:hover .icon__box,
-.field .icon__link:focus-visible .icon__box,
-.field .icon__link:active .icon__box {
-  transform: none;
-}
+.field .icon__box { grid-column: 1 / span 4; }
 
-/* Without hover (touch screens, phones) and while a project is open, the
-   name and description sit below the icon and always show */
-.field .icon__text {
-  margin-top: 16px;
-  opacity: 1;
-}
+/* Hidden at rest; shown on hover or focus (the shared icon rules above) and
+   for as long as the project is open */
+.field .icon__text { grid-column: 6 / span 6; }
 
-/* With a mouse: the name and description are hidden at rest and, on hover or
-   focus, fade in centred on the icon, over a Paper veil. A block taller than
-   the icon grows equally above and below it, so it stays centred. */
-@media (hover: hover) and (min-width: 601px) {
-  .field .icon:not(.is-open) .icon__text {
-    position: absolute;
-    top: 50%;
-    left: 0;
-    right: 0;
-    z-index: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    min-height: 100%;
-    margin-top: 0;
-    padding: 24px;
-    background: rgba(255, 255, 255, 0.92);
-    text-align: center;
-    transform: translateY(-50%);
-    opacity: 0;
-    transition: opacity 400ms ease-out;
-  }
+.field .icon.is-open .icon__text { opacity: 1; }
 
-  .field .icon:not(.is-open) .icon__link:hover .icon__text,
-  .field .icon:not(.is-open) .icon__link:focus-visible .icon__text,
-  .field .icon:not(.is-open) .icon__link:active .icon__text {
-    opacity: 1;
-  }
+/* Touch screens have no hover: only an open project shows its text */
+@media (hover: none) {
+  .field .icon:not(.is-open) .icon__text { opacity: 0; }
 }
 
 /* Viewer: closed until its project is clicked. It grows to its full height
@@ -692,10 +661,11 @@ button {
 /* Slightly more space between pairs than between other images */
 .slide--pair + .slide--pair { margin-left: 16px; }
 
-/* Tablet: four of the eight columns */
+/* Tablet: icon on columns 1 to 4, text on columns 5 to 8, 40px apart */
 @media (max-width: 1024px) {
-  .field .icon__link {
-    width: calc((100% - 7 * var(--gutter)) / 8 * 4 + 3 * var(--gutter));
+  .field .icon__text {
+    grid-column: 5 / -1;
+    margin-left: 16px;
   }
 }
 
@@ -721,9 +691,17 @@ button {
 @media (max-width: 600px) {
   .pagehead { padding-bottom: 40px; }
 
-  /* Phone: the icon fills the width; the name and description sit below it
-     and always show */
-  .field .icon__link { width: 100%; }
+  /* Phone: no room beside the icon, so it fills the width. The name and
+     description appear directly below it only while the project is open,
+     and take up no room otherwise. */
+  .field .icon__link { display: block; }
+
+  .field .icon__text {
+    margin-top: 16px;
+    margin-left: 0;
+  }
+
+  .field .icon:not(.is-open) .icon__text { display: none; }
 
   .slide__media { height: min(48vh, 86vw); }
 
