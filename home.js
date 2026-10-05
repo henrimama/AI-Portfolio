@@ -1,5 +1,90 @@
-// home.js: the home page. Projects open in place, and the toolbar filters
-// them by type. See DESIGN.md, "Home page".
+// home.js: the home page. The ending of the intro screen, projects that open
+// in place, and the toolbar that filters them by type. See DESIGN.md.
+
+// ---------- Intro screen: the ending ----------
+// index.html adds the "intro" class right after log-in and styles.css fades
+// the text in. Here "Henri Maman" travels into the header as the black
+// screen fades away. See DESIGN.md, "Intro screen".
+(function () {
+  var root = document.documentElement;
+  if (!root.classList.contains('intro')) return;
+
+  var screen = document.querySelector('.intro-screen');
+  var block = screen.querySelector('.intro-screen__text');
+  var name = block.querySelector('.display');
+  var sub = block.querySelector('.intro-screen__sub');
+  var target = document.querySelector('.bar .bar__name');
+
+  // The box around the letters themselves, whatever box they sit in.
+  function letters(element) {
+    var range = document.createRange();
+    range.selectNodeContents(element);
+    return range.getBoundingClientRect();
+  }
+
+  function finish() {
+    root.classList.remove('intro');
+  }
+
+  function end() {
+    var box = name.getBoundingClientRect();
+    var from = letters(name);
+    var to = letters(target);
+    var scale = to.height / from.height;
+    // Where the letters start inside the name's box, which shrinks with it.
+    var insetX = (from.left - box.left) * scale;
+    var insetY = (from.top - box.top) * scale;
+    var moveX = to.left - box.left - insetX;
+    var moveY = to.top - box.top - insetY;
+
+    // Large and small type are not spaced in exact proportion, so work out
+    // the letter spacing that makes the shrunken name exactly as wide as
+    // the header's.
+    var spacingFrom = getComputedStyle(name).letterSpacing;
+    name.style.letterSpacing = '0px';
+    var plainWidth = letters(name).width;
+    name.style.letterSpacing = '';
+    var spacingTo = ((to.width / scale - plainWidth) / name.textContent.length) + 'px';
+
+    // Lift the name out of the centred block, exactly where it already is.
+    block.style.paddingTop = box.height + 'px';
+    name.style.position = 'fixed';
+    name.style.left = box.left + 'px';
+    name.style.top = box.top + 'px';
+    name.style.width = box.width + 'px';
+    name.style.margin = '0';
+    name.style.textAlign = 'left';
+    name.style.whiteSpace = 'nowrap';
+    name.style.transformOrigin = '0 0';
+
+    var timing = { duration: 1000, easing: 'cubic-bezier(0.65, 0, 0.35, 1)', fill: 'forwards' };
+
+    sub.animate([{ opacity: 1 }, { opacity: 0 }], { duration: 300, easing: 'ease-out', fill: 'forwards' });
+
+    // Paper on the black screen, Ink on the white page, switching quickly
+    // at the midpoint of the fade so it is never grey on grey.
+    name.animate([
+      { transform: 'none', letterSpacing: spacingFrom, color: '#FFFFFF', offset: 0 },
+      { color: '#FFFFFF', offset: 0.47 },
+      { color: '#0A0A0A', offset: 0.53 },
+      { transform: 'translate(' + moveX + 'px, ' + moveY + 'px) scale(' + scale + ')',
+        letterSpacing: spacingTo, color: '#0A0A0A', offset: 1 }
+    ], timing);
+
+    var fade = screen.animate([
+      { backgroundColor: 'rgba(10, 10, 10, 1)' },
+      { backgroundColor: 'rgba(10, 10, 10, 0)' }
+    ], timing);
+
+    fade.onfinish = finish;
+  }
+
+  // Hold until 1.5 seconds after the page began to load, then play the ending.
+  setTimeout(function () {
+    try { end(); } catch (error) { finish(); }
+  }, Math.max(0, 1500 - performance.now()));
+})();
+
 (function () {
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var smooth = reduce ? 'auto' : 'smooth';

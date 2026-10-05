@@ -14,7 +14,7 @@ login.html (never gated)
 
 index.html (home)
 - Purpose: in ten seconds, show a confident, precise designer who understands the business.
-- Content: menu; "Henri Maman" with the word "Portfolio" directly beneath it; a toolbar that filters the projects by type (All, Studio Work, Professional Work, Built Work) and shows a count; the project icons, stacked in a single column, each linking to its project page and each with the project's name and short description (shown on hover with a mouse, always shown on phones); one full-bleed lead image [ADD: image of Henri's strongest project]; links to Projects and About. See DESIGN.md, "Home page".
+- Content: menu; "Henri Maman" with the word "Portfolio" directly beneath it; a toolbar that filters the projects by type (All, Studio Work, Professional Work, Built Work) and shows a count; the project icons, stacked in a single column, each linking to its project page and each with the project's name and short description (shown on hover with a mouse, always shown on phones); one full-bleed lead image [ADD: image of Henri's strongest project]; links to Contact and About. See DESIGN.md, "Home page".
 - Clicking a project on the home page expands it in place (it does not leave the page):
   - The project grows to the full width of the grid with a smooth fade and scale, and pushes the projects below it down.
   - Inside, the project's images sit side by side in one continuous strip that scrolls sideways seamlessly. It does not stop on each image and there are no separate pages. Swipe on phones; drag, or the left and right arrow keys, on desktop. There are no buttons inside an open project.
@@ -38,6 +38,7 @@ index.html (home)
 
 projects.html
 - Purpose: every project in one place.
+- Not linked from anywhere: the Projects link was removed from the menu and from the home page footer. The page and the project pages behind it still exist and open by typing their address. [ADD: Henri to decide whether to keep, re-link or remove them]
 - Content: projects grouped under three headings. Each entry shows its icon, title, context (course or firm), year, one line of description and one framed image. Every value comes from Henri.
   - Studio Work: R+EC, Deering Estate, Rain Field, Ramp & Reel Fishing Market.
   - Professional Work: Mercy University (Clarke Caton Hintz).
@@ -134,7 +135,7 @@ Never invent facts, dimensions, dates or names that Henri has not given. Ask him
 
 ## Done when
 - [ ] Works on a phone.
-- [ ] The menu reaches every page.
+- [ ] The menu reaches About and Contact, and "Henri Maman" in the header returns to the home page from every page.
 - [ ] Sign up works.
 - [ ] Log in works and lands on index.html.
 - [ ] Log out works from every page.

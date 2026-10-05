@@ -422,7 +422,8 @@ button {
 /* ---------- Home page ---------- */
 
 /* Intro screen: played once, right after log-in. About 2.5 seconds: the
-   text fades in (600ms), holds, then the whole screen fades out (800ms). */
+   text fades in (600ms) and holds; then home.js plays the ending, in which
+   "Henri Maman" travels into the header as the black screen fades away. */
 .intro-screen {
   position: fixed;
   inset: 0;
@@ -444,7 +445,9 @@ button {
   display: grid;
   /* Shows at once, even while the page behind waits for the session check */
   visibility: visible;
-  animation: intro-out 800ms ease-in 1700ms forwards;
+  /* Safety net only: if the ending in home.js never runs, the screen still
+     gets out of the way after five seconds */
+  animation: intro-give-up 1ms linear 5s forwards;
 }
 
 .intro .intro-screen__text {
@@ -452,15 +455,22 @@ button {
   animation: intro-in 600ms ease-out forwards;
 }
 
+/* The header's own name waits, hidden, for the travelling name to land on it */
+.intro .bar .bar__name {
+  visibility: hidden;
+  animation: intro-show 1ms linear 5s forwards;
+}
+
 @keyframes intro-in {
   to { opacity: 1; }
 }
 
-@keyframes intro-out {
-  to {
-    opacity: 0;
-    visibility: hidden;
-  }
+@keyframes intro-give-up {
+  to { visibility: hidden; }
+}
+
+@keyframes intro-show {
+  to { visibility: visible; }
 }
 
 @media (max-width: 600px) {
@@ -500,61 +510,63 @@ button {
 }
 
 /* Project icons: one vertical column, evenly spaced, each icon four grid
-   columns wide and centred on the page. Each project's row spans the whole
-   grid so that hovering anywhere along it counts. */
+   columns wide and centred on the page. */
 .field {
   margin-top: 40px;
   row-gap: var(--section);
-  /* Centre position of the icon, and how far that is from the left edge */
-  --icon-start: 5;
-  --icon-shift: calc(100% + var(--gutter));
 }
 
 .field .icon { grid-column: 1 / -1; }
 
+/* The link is exactly as wide as the icon: four of the twelve columns */
 .field .icon__link {
-  display: grid;
-  grid-template-columns: repeat(var(--cols), minmax(0, 1fr));
-  column-gap: var(--gutter);
-  align-items: start;
+  position: relative;
+  width: calc((100% - 11 * var(--gutter)) / 12 * 4 + 3 * var(--gutter));
+  margin-inline: auto;
 }
 
-/* The icon's place in the grid is the left edge (columns 1 to 4). At rest
-   it is shifted to the centre; on hover or focus it glides back to the left
-   and the name and description fade in beside it. */
-.field .icon__box {
-  grid-area: 1 / 1 / auto / span 4;
-  transform: translateX(var(--icon-shift));
-  transition: transform 400ms ease-out;
-}
-
-.field .icon__text {
-  grid-area: 1 / 5 / auto / span 6;
-  transition: opacity 400ms ease-out;
-}
-
+/* The icon stays still on hover (no lift on the home page) */
 .field .icon__link:hover .icon__box,
 .field .icon__link:focus-visible .icon__box,
-.field .icon__link:active .icon__box,
-.field .icon.is-open .icon__box {
+.field .icon__link:active .icon__box {
   transform: none;
 }
 
-/* An open project keeps its name and description on show */
-.field .icon.is-open .icon__text { opacity: 1; }
+/* Without hover (touch screens, phones) and while a project is open, the
+   name and description sit below the icon and always show */
+.field .icon__text {
+  margin-top: 16px;
+  opacity: 1;
+}
 
-/* Touch screens have no hover: the icon stays centred and the name and
-   description sit below it, always on show */
-@media (hover: none) {
-  .field .icon__box,
-  .field .icon.is-open .icon__box {
-    grid-column: var(--icon-start) / span 4;
-    transform: none;
+/* With a mouse: the name and description are hidden at rest and, on hover or
+   focus, fade in centred on the icon, over a Paper veil. A block taller than
+   the icon grows equally above and below it, so it stays centred. */
+@media (hover: hover) and (min-width: 601px) {
+  .field .icon:not(.is-open) .icon__text {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100%;
+    margin-top: 0;
+    padding: 24px;
+    background: rgba(255, 255, 255, 0.92);
+    text-align: center;
+    transform: translateY(-50%);
+    opacity: 0;
+    transition: opacity 400ms ease-out;
   }
 
-  .field .icon__text {
-    grid-area: 2 / var(--icon-start) / auto / span 4;
-    margin-top: 16px;
+  .field .icon:not(.is-open) .icon__link:hover .icon__text,
+  .field .icon:not(.is-open) .icon__link:focus-visible .icon__text,
+  .field .icon:not(.is-open) .icon__link:active .icon__text {
+    opacity: 1;
   }
 }
 
@@ -680,17 +692,11 @@ button {
 /* Slightly more space between pairs than between other images */
 .slide--pair + .slide--pair { margin-left: 16px; }
 
-/* Tablet: eight columns, so the centre is columns 3 to 6 */
+/* Tablet: four of the eight columns */
 @media (max-width: 1024px) {
-  .field {
-    --icon-start: 3;
-    --icon-shift: calc(50% + var(--gutter) / 2);
+  .field .icon__link {
+    width: calc((100% - 7 * var(--gutter)) / 8 * 4 + 3 * var(--gutter));
   }
-
-}
-
-@media (max-width: 1024px) and (hover: hover) {
-  .field .icon__text { grid-column: 5 / -1; }
 }
 
 /* Projects outside the chosen filter fade and drop below the chosen ones */
@@ -717,12 +723,7 @@ button {
 
   /* Phone: the icon fills the width; the name and description sit below it
      and always show */
-  .field .icon__link { display: block; }
-
-  .field .icon__box,
-  .field .icon.is-open .icon__box {
-    transform: none;
-  }
+  .field .icon__link { width: 100%; }
 
   .slide__media { height: min(48vh, 86vw); }
 
@@ -730,11 +731,6 @@ button {
   .slide__desc { flex-basis: 100%; }
 
   .viewer__slides { margin-top: 24px; }
-
-  .field .icon__text {
-    margin-top: 16px;
-    opacity: 1;
-  }
 
   .icon__name { font-size: 18px; }
 
