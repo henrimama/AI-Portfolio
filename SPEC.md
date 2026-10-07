@@ -14,7 +14,7 @@ login.html (never gated)
 
 index.html (home)
 - Purpose: in ten seconds, show a confident, precise designer who understands the business.
-- Content: menu; "Henri Maman" with the word "Portfolio" directly beneath it; a toolbar that filters the projects by type (All, Studio Work, Professional Work, Built Work) and shows a count; the project icons, stacked in a single column, each linking to its project page and each with the project's name and short description (shown only on hover or while the project is open; on phones, only while it is open); one full-bleed lead image [ADD: image of Henri's strongest project]; links to Contact and About. See DESIGN.md, "Home page".
+- Content: menu; "Henri Maman" with the word "Portfolio" directly beneath it; a toolbar that filters the projects by type (All, Studio Work, Professional Work, Built Work) and shows a count; the project icons, stacked in a single column, each linking to its project page and each with the project's name and short description (shown only on hover or while the project is open; on phones, only while it is open); links to Contact and About. See DESIGN.md, "Home page".
 - Clicking a project on the home page expands it in place (it does not leave the page):
   - The project grows to the full width of the grid with a smooth fade and scale, and pushes the projects below it down.
   - Inside, the project's images sit side by side in one continuous strip that scrolls sideways seamlessly. It does not stop on each image and there are no separate pages. Swipe on phones; drag, or the left and right arrow keys, on desktop. There are no buttons inside an open project.

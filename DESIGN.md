@@ -73,8 +73,7 @@ The home page works like a small browser for the work. From top to bottom:
   - Only one project is open at a time. Opening another closes the first. Clicking the open project again, or pressing Escape, closes it.
   - After a project opens, the page scrolls just enough to bring the whole viewer into view.
 - When a filter is chosen, the projects of that type move to the top of the column, directly under the toolbar, in their usual order. The other projects follow beneath them, faded to 20% opacity, and cannot be clicked. "All" puts every project back in its usual order.
-- One full-bleed lead image, 21:9 on desktop and 4:3 on phone, 120px below the last icon (64px on phone).
-- Text links to Contact and About, 64px below the image. There is no Projects link.
+- Text links to Contact and About, 120px below the last project (64px on phone). There is no Projects link. There is no full-bleed image on the home page.
 - Nothing changes on its own. The page only changes when a button is pressed.
 
 ## About page

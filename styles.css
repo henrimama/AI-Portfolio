@@ -265,6 +265,13 @@ button {
   inset: -40px 0 0 0;
 }
 
+/* A real image fills the frame at its own proportions, trimmed to fit */
+img.lead__media {
+  width: 100%;
+  height: calc(100% + 40px);
+  object-fit: cover;
+}
+
 @media (max-width: 600px) {
   .lead { aspect-ratio: 4 / 3; }
 }
@@ -743,12 +750,7 @@ button {
   opacity: 0.2;
 }
 
-.lead--band {
-  margin-top: var(--section);
-  aspect-ratio: 21 / 9;
-}
-
-.links { margin-top: 64px; }
+.links { margin-top: var(--section); }
 
 .links__inner {
   grid-column: 1 / -1;
@@ -783,8 +785,6 @@ button {
 
   .icon__name { font-size: 18px; }
 
-  .lead--band { aspect-ratio: 4 / 3; }
-  .links { margin-top: 40px; }
 }
 
 /* ---------- Projects page ---------- */
