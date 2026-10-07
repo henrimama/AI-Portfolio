@@ -94,20 +94,23 @@
 
   var projects = Array.prototype.map.call(document.querySelectorAll('.field .icon'), function (card) {
     var link = card.querySelector('.icon__link');
+    // A project with no images yet has no viewer: clicking it only pins its
+    // name and description open.
     var viewer = card.querySelector('.viewer');
-    var strip = viewer.querySelector('.viewer__slides');
+    var strip = viewer ? viewer.querySelector('.viewer__slides') : null;
     var ticking = false;
 
     var project = { card: card, open: open, close: close, step: step };
 
     link.setAttribute('role', 'button');
     link.setAttribute('aria-expanded', 'false');
-    link.setAttribute('aria-controls', viewer.id);
+    if (viewer) link.setAttribute('aria-controls', viewer.id);
 
     // Images are only fetched when they are on show or within one screen
     // of it, so opening a project does not download every image at once.
     function update() {
       ticking = false;
+      if (!strip) return;
       var view = strip.getBoundingClientRect();
       strip.querySelectorAll('img[data-src]').forEach(function (img) {
         var box = img.parentElement.getBoundingClientRect();
@@ -123,18 +126,19 @@
       window.requestAnimationFrame(update);
     }
 
-    strip.addEventListener('scroll', onScroll, { passive: true });
+    if (strip) strip.addEventListener('scroll', onScroll, { passive: true });
     window.addEventListener('resize', onScroll);
 
     // The arrow keys glide the strip along by most of a screen.
     function step(direction) {
+      if (!strip) return;
       strip.scrollBy({ left: direction * strip.clientWidth * 0.8, behavior: smooth });
     }
 
     // With a mouse, the strip can be dragged. Touch screens swipe it natively.
     var drag = null;
 
-    strip.addEventListener('pointerdown', function (event) {
+    if (strip) strip.addEventListener('pointerdown', function (event) {
       if (event.pointerType !== 'mouse' || event.button !== 0) return;
       drag = { x: event.clientX, left: strip.scrollLeft, moved: false };
     });
@@ -151,28 +155,28 @@
 
     window.addEventListener('pointerup', function () {
       drag = null;
-      strip.classList.remove('is-dragging');
+      if (strip) strip.classList.remove('is-dragging');
     });
 
     function open() {
       if (openProject && openProject !== project) openProject.close();
       openProject = project;
       card.classList.add('is-open');
-      viewer.inert = false;
+      if (viewer) viewer.inert = false;
       link.setAttribute('aria-expanded', 'true');
       update();
       // Once the viewer has grown, bring all of it into view.
       setTimeout(function () {
         if (openProject !== project) return;
         update();
-        viewer.scrollIntoView({ block: 'nearest', behavior: smooth });
+        (viewer || card).scrollIntoView({ block: 'nearest', behavior: smooth });
       }, reduce ? 0 : 420);
     }
 
     function close(returnFocus) {
       if (openProject === project) openProject = null;
       card.classList.remove('is-open');
-      viewer.inert = true;
+      if (viewer) viewer.inert = true;
       link.setAttribute('aria-expanded', 'false');
       if (returnFocus) link.focus();
     }

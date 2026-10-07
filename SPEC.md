@@ -21,7 +21,9 @@ index.html (home)
   - Under each drawing or render: its title on the left, and on the opposite side a text box with Henri's description of that image [ADD: a description for each drawing and render, from Henri].
   - Photos of physical models have a title only, with no description text box. In R+EC these are: site model, site model 2, section model 1, 2 and 3.
   - Only one project is open at a time. Clicking a different project closes the open one back to its original size and opens the new one the same way. Clicking the open project again, or the Escape key, closes it.
-  - It works the same for all six projects. A project with no images yet shows grey [ADD: image of ...] boxes in the viewer.
+  - It works the same for all six projects. A project with no images yet shows grey [ADD: image of ...] boxes in the viewer, except Rain Field, which has no viewer at all for now: no images and no captions open beneath it.
+  - Order on the home page: R+EC, Deering Estate, Ramp & Reel Fishing Market, Mercy University, Built Work, and Rain Field last.
+  - Rain Field's icon is, for now, the "Under Construction" image images/rf/rf-01-under-construction.jpg [ADD: Rain Field's own icon and images].
   - The full project pages are reached from the Projects page. Without JavaScript, clicking a project on the home page goes straight to its project page.
   - Elevations and sections are scaled to fit the visible width, never cropped, and stacked in pairs: North Elevation above South Elevation, East Elevation above West Elevation, Long Section above Short Section (see DESIGN.md, "Home page"). If a project is missing one drawing of a pair, the one it has stays in place.
   - R+EC's cover drawing is its icon on the home page, in the box beside the project's name and description (images/icons/rec.jpg). It is not repeated in the strip of images.
