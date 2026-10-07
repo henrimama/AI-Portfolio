@@ -217,7 +217,7 @@
           photo.classList.toggle('is-current', i === at);
         });
         title.textContent = photos[at].dataset.title;
-        desc.textContent = photos[at].dataset.desc;
+        if (desc) desc.textContent = photos[at].dataset.desc;
       }
 
       // A click that ends a drag of the strip does not change the photo.
