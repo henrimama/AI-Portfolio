@@ -769,6 +769,26 @@ img.lead__media {
 
 .cycle__img.is-current { opacity: 1; }
 
+/* "Click Me": a small label above a click-through image, at its top left.
+   It sits in room made above the strip (taken from the strip's own top
+   margin), so the image stays level with its neighbours. */
+.viewer__slides--hints {
+  margin-top: 16px;
+  padding-top: 24px;
+}
+
+.slide--cycle { position: relative; }
+
+.cycle__hint {
+  position: absolute;
+  bottom: calc(100% + 6px);
+  left: 0;
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--graphite);
+  white-space: nowrap;
+}
+
 /* Click the left half for the photo before, the right half for the next */
 .cycle__zone {
   position: absolute;

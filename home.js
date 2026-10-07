@@ -336,6 +336,22 @@
     return project;
   });
 
+  // Clicking empty space outside the open project closes it. The press must
+  // start outside it too, so dragging the strip and letting go elsewhere
+  // does not count. Links, buttons and the enlarged view are left alone.
+  var pressedOutside = false;
+
+  document.addEventListener('pointerdown', function (event) {
+    pressedOutside = !!openProject && !openProject.card.contains(event.target);
+  });
+
+  document.addEventListener('click', function (event) {
+    if (!openProject || !pressedOutside) return;
+    if (openProject.card.contains(event.target)) return;
+    if (event.target.closest('a, button, input, select, textarea, label, .zoom')) return;
+    openProject.close();
+  });
+
   document.addEventListener('keydown', function (event) {
     if (!openProject) return;
     if (event.key === 'ArrowLeft') { event.preventDefault(); openProject.step(-1); }
