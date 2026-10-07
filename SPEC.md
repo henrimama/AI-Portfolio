@@ -22,6 +22,9 @@ index.html (home)
   - Photos of physical models have a title only, with no description text box. In R+EC these are: site model, site model 2, section model 1, 2 and 3.
   - Only one project is open at a time. Clicking a different project closes the open one back to its original size and opens the new one the same way. Clicking the open project again, or the Escape key, closes it.
   - It works the same for all six projects. A project with no images yet shows grey [ADD: image of ...] boxes in the viewer, except Rain Field, which has no viewer at all for now: no images and no captions open beneath it.
+  - Built Work uses the same strip as every other project. Its images, in order: (1) the pergola cover image, bw-pergola-cover-image-01; (2) one click-through image holding three process photos, bw-pergola-process-02, 03 and 04: clicking it changes to the next photo in the same place (right side for the next, left side for the one before), and the title and description change with it; (3) a second click-through image, the same way, holding process photos bw-pergola-process-05, 06 and 07; (4) the finished pergola, bw-pergola-finished-08.
+  - Built Work titles and descriptions, in Henri's words: cover image: "Pergola", "Hand-built pergola above the valley"; photo 02: "Clearing Site", "Initial site clearing, and layout"; photo 03: "Pouring Concrete", "concrete footings poured by hand"; photo 04: "Concrete Setting", "Posts set and leveled"; photo 05: "Bracing Columns", "Posts set and leveled"; photo 06: "Beams", "Primary frame established"; photo 07: "Support Columns", "Additional support added"; photo 08: "Finish Product", "Ready for use". Then, after a wider gap, the garage door: bw-garage-door-finished-0.8, "Garage Door", "Hand-built timber garage doors".
+  - Built Work's icon is the photo bw-pergola-icon-image-09 (images/icons/built.jpg). Henri's original photos are in images/bw; the site shows web-sized copies from images/bw/web.
   - Order on the home page: R+EC, Deering Estate, Ramp & Reel Fishing Market, Mercy University, Built Work, and Rain Field last.
   - Rain Field's icon is, for now, the "Under Construction" image images/rf/rf-01-under-construction.jpg [ADD: Rain Field's own icon and images].
   - The full project pages are reached from the Projects page. Without JavaScript, clicking a project on the home page goes straight to its project page.
@@ -36,7 +39,7 @@ index.html (home)
   - Ramp & Reel Fishing Market: "Ramp & Reel is a fish market on the Miami River that turns an industrial edge into an active public waterfront. Continuous ramps make the entire building accessible and guide visitors through the market toward the river."
   - Mercy University: "As a Project Design Intern at Clarke Caton Hintz, I produced demolition plans, proposed floor plans, and reflected ceiling plans for Mercy University. I also built the project's SketchUp model and helped render it in Lumion."
   - Deering Estate: "A small academic complex at the Deering Estate that treats thresholds as architecture, linking classrooms, a lab, a lecture hall, and a gallery through breezeways and shaded patios. Louvers, deep overhangs, and exposed timber control light and airflow while keeping the buildings open to the landscape." No info line beneath it on the home page.
-  - Built Work: [ADD: short description]. Until then it shows its name only.
+  - Built Work: "Some ideas are best tested with your own hands. These projects, a reclaimed-timber pergola in southern France and a wood and steel garage door in Princeton, came from a simple drive to make things myself and to see a drawing become something solid, useful, and lasting."
 
 projects.html
 - Purpose: every project in one place.

@@ -638,7 +638,7 @@ button {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  gap: 4px var(--gutter);
+  gap: 4px 16px;
   /* As wide as its image (or as the visible strip, if the image is wider),
      without ever making the image's column wider */
   width: 0;
@@ -652,9 +652,11 @@ button {
   line-height: 1.55;
 }
 
-/* Flush right, so the description ends at the image's right edge */
+/* Flush right, so the description ends at the image's right edge. It takes
+   only the room its words need, so it shares the title's line whenever the
+   two fit side by side, and drops below only when they don't. */
 .slide__desc {
-  flex: 1 1 260px;
+  flex: 0 1 auto;
   max-width: 480px;
   margin-left: auto;
   line-height: 1.55;
@@ -676,6 +678,50 @@ button {
   width: 100%;
   height: auto;
 }
+
+/* Click-through image: several photos share one place in the strip, lying
+   on top of one another in the same frame, so the image changes in exactly
+   the same place and at exactly the same size. Only the current one shows.
+   See DESIGN.md, "Home page". */
+.cycle {
+  position: relative;
+  overflow: hidden;
+}
+
+.cycle__img {
+  position: absolute;
+  inset: 0;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 200ms ease-out;
+}
+
+.cycle__img.is-current { opacity: 1; }
+
+/* Click the left half for the photo before, the right half for the next */
+.cycle__zone {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  z-index: 1;
+  width: 50%;
+}
+
+.cycle__zone--prev {
+  left: 0;
+  cursor: w-resize;
+}
+
+.cycle__zone--next {
+  right: 0;
+  cursor: e-resize;
+}
+
+.cycle__zone:focus-visible { outline-offset: -4px; }
+
+/* A second built project in the same strip starts after a wider gap:
+   64px in all, counting the gutter that is already there */
+.slide--group { margin-left: calc(64px - var(--gutter)); }
 
 /* Slightly more space between pairs than between other images */
 .slide--pair + .slide--pair { margin-left: 16px; }
@@ -732,9 +778,6 @@ button {
   .field .icon:not(.is-open) .icon__text { display: none; }
 
   .slide__media { height: min(48vh, 86vw); }
-
-  /* Too narrow for side by side: the text box always sits under the title */
-  .slide__desc { flex-basis: 100%; }
 
   .viewer__slides { margin-top: 24px; }
 

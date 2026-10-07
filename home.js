@@ -129,6 +129,36 @@
     if (strip) strip.addEventListener('scroll', onScroll, { passive: true });
     window.addEventListener('resize', onScroll);
 
+    // Click-through images: several photos share one place in the strip.
+    // Clicking the right half shows the next photo in that same place, the
+    // left half the one before, and the title and description change with it.
+    var dragged = false;
+
+    if (viewer) viewer.querySelectorAll('.slide--cycle').forEach(function (slide) {
+      var photos = slide.querySelectorAll('.cycle__img');
+      var title = slide.querySelector('.slide__title');
+      var desc = slide.querySelector('.slide__desc');
+      var at = 0;
+
+      function show(index) {
+        // After the last photo comes the first, and the other way round.
+        at = (index + photos.length) % photos.length;
+        photos.forEach(function (photo, i) {
+          photo.classList.toggle('is-current', i === at);
+        });
+        title.textContent = photos[at].dataset.title;
+        desc.textContent = photos[at].dataset.desc;
+      }
+
+      // A click that ends a drag of the strip does not change the photo.
+      slide.querySelector('.cycle__zone--prev').addEventListener('click', function () {
+        if (!dragged) show(at - 1);
+      });
+      slide.querySelector('.cycle__zone--next').addEventListener('click', function () {
+        if (!dragged) show(at + 1);
+      });
+    });
+
     // The arrow keys glide the strip along by most of a screen.
     function step(direction) {
       if (!strip) return;
@@ -139,6 +169,7 @@
     var drag = null;
 
     if (strip) strip.addEventListener('pointerdown', function (event) {
+      dragged = false;
       if (event.pointerType !== 'mouse' || event.button !== 0) return;
       drag = { x: event.clientX, left: strip.scrollLeft, moved: false };
     });
@@ -148,6 +179,7 @@
       var distance = event.clientX - drag.x;
       if (Math.abs(distance) > 4) {
         drag.moved = true;
+        dragged = true;
         strip.classList.add('is-dragging');
       }
       if (drag.moved) strip.scrollLeft = drag.left - distance;
@@ -156,6 +188,9 @@
     window.addEventListener('pointerup', function () {
       drag = null;
       if (strip) strip.classList.remove('is-dragging');
+      // The click that ends a drag arrives straight after this; forget the
+      // drag once it has passed, so later clicks and key presses count.
+      setTimeout(function () { dragged = false; }, 0);
     });
 
     function open() {
