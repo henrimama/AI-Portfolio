@@ -672,6 +672,34 @@ img.lead__media {
   }
 }
 
+/* A strip with notes: two shared rows, the notes and, beneath them, each
+   image with its caption. The images still line up along their top edge
+   and each note ends just above its own image. */
+.viewer__slides--notes {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: max-content;
+  grid-template-rows: auto auto;
+  row-gap: 0;
+}
+
+.viewer__slides--notes .slide {
+  display: grid;
+  grid-row: 1 / span 2;
+  grid-template-rows: subgrid;
+}
+
+.viewer__slides--notes .slide__note {
+  grid-row: 1;
+  align-self: end;
+}
+
+.viewer__slides--notes .slide__body {
+  grid-row: 2;
+  align-self: start;
+  margin: 0;
+}
+
 /* Under each image: its title on the left, its text box on the opposite
    side. Under a narrow image the text drops below the title. Under an image
    wider than the strip, both stay in view while the image is panned. */
