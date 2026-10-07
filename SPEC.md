@@ -20,6 +20,7 @@ index.html (home)
   - Inside, the project's images sit side by side in one continuous strip that scrolls sideways seamlessly. It does not stop on each image and there are no separate pages. Swipe on phones; drag, or the left and right arrow keys, on desktop. There are no buttons inside an open project.
   - Under each drawing or render: its title on the left, and on the opposite side a text box with Henri's description of that image [ADD: a description for each drawing and render, from Henri].
   - Photos of physical models have a title only, with no description text box. In R+EC these are: site model, site model 2, section model 1, 2 and 3.
+  - Every image in a project's strip can be enlarged: clicking it opens a larger view over the whole screen, and moving the mouse over it shows different parts of the drawing in more detail (see DESIGN.md, "Home page"). Placeholders and click-through images are the exceptions.
   - Every word of every title starts with a capital letter (project names and image titles alike).
   - Only one project is open at a time. Clicking a different project closes the open one back to its original size and opens the new one the same way. Clicking the open project again, or the Escape key, closes it.
   - It works the same for all six projects. A project with no images yet shows grey [ADD: image of ...] boxes in the viewer, except Rain Field, which has no viewer at all for now: no images and no captions open beneath it.

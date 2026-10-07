@@ -90,6 +90,76 @@
   var smooth = reduce ? 'auto' : 'smooth';
   var openProject = null;
 
+  // ---------- Enlarged view ----------
+  // Clicking an image in a strip opens it larger, over the whole screen.
+  // Moving the mouse moves the view around the image, so any part of a
+  // drawing can be seen in detail. On a touch screen it is dragged instead.
+  // See DESIGN.md, "Home page".
+
+  var zoom = document.createElement('div');
+  zoom.className = 'zoom';
+  zoom.hidden = true;
+  zoom.setAttribute('role', 'dialog');
+  zoom.setAttribute('aria-modal', 'true');
+  zoom.setAttribute('aria-label', 'Enlarged image');
+  zoom.innerHTML =
+    '<div class="zoom__pan"><img class="zoom__img" alt="" draggable="false"></div>' +
+    '<button type="button" class="chip zoom__close">Close</button>';
+  document.body.appendChild(zoom);
+
+  var zoomPan = zoom.querySelector('.zoom__pan');
+  var zoomImg = zoom.querySelector('.zoom__img');
+  var zoomClose = zoom.querySelector('.zoom__close');
+  var zoomFrom = null;
+  var zoomTimer;
+
+  // Point at the left of the screen to see the left of the image, the
+  // bottom to see the bottom, and so on.
+  function zoomLook(x, y) {
+    zoomPan.scrollLeft = (x / zoomPan.clientWidth) * (zoomPan.scrollWidth - zoomPan.clientWidth);
+    zoomPan.scrollTop = (y / zoomPan.clientHeight) * (zoomPan.scrollHeight - zoomPan.clientHeight);
+  }
+
+  function zoomOpen(img, x, y) {
+    clearTimeout(zoomTimer);
+    zoomFrom = img;
+    zoomImg.src = img.currentSrc || img.src;
+    zoomImg.alt = img.alt;
+    // Its full stored size, which is usually larger than the screen.
+    zoomImg.width = img.naturalWidth;
+    zoomImg.height = img.naturalHeight;
+    zoom.hidden = false;
+    document.body.style.overflow = 'hidden';
+    // Start on the part of the image that was clicked.
+    zoomLook(x === undefined ? zoomPan.clientWidth / 2 : x, y === undefined ? zoomPan.clientHeight / 2 : y);
+    window.requestAnimationFrame(function () { zoom.classList.add('is-open'); });
+    zoomClose.focus();
+  }
+
+  function zoomShut() {
+    if (zoom.hidden) return;
+    zoom.classList.remove('is-open');
+    document.body.style.overflow = '';
+    zoomTimer = setTimeout(function () { zoom.hidden = true; }, reduce ? 0 : 200);
+    if (zoomFrom) zoomFrom.focus();
+  }
+
+  zoomPan.addEventListener('pointermove', function (event) {
+    if (event.pointerType === 'mouse') zoomLook(event.clientX, event.clientY);
+  });
+  zoomPan.addEventListener('click', zoomShut);
+  zoomClose.addEventListener('click', zoomShut);
+
+  // While the enlarged view is open the keys belong to it: Escape closes it
+  // (not the project behind it) and the arrow keys do not move the strip.
+  document.addEventListener('keydown', function (event) {
+    if (zoom.hidden) return;
+    if (event.key === 'Escape') zoomShut();
+    if (event.key === 'Escape' || event.key === 'ArrowLeft' || event.key === 'ArrowRight') {
+      event.stopImmediatePropagation();
+    }
+  }, true);
+
   // ---------- Projects open in place ----------
 
   var projects = Array.prototype.map.call(document.querySelectorAll('.field .icon'), function (card) {
@@ -158,6 +228,35 @@
         if (!dragged) show(at + 1);
       });
     });
+
+    // Any real image in the strip can be enlarged by clicking it, or with
+    // Enter when it has keyboard focus. Not a placeholder, and not a
+    // click-through image, where a click changes the photo instead.
+    function canEnlarge(img) {
+      return img && img.tagName === 'IMG' && !img.classList.contains('cycle__img') && img.getAttribute('src');
+    }
+
+    if (strip) {
+      strip.querySelectorAll('img.slide__img:not(.cycle__img)').forEach(function (img) {
+        img.tabIndex = 0;
+        img.setAttribute('role', 'button');
+        img.setAttribute('aria-label', 'Enlarge image: ' + img.alt);
+      });
+
+      strip.addEventListener('click', function (event) {
+        var img = event.target.closest('.slide__img');
+        // A click that ends a drag of the strip does not enlarge anything.
+        if (dragged || !canEnlarge(img)) return;
+        zoomOpen(img, event.clientX, event.clientY);
+      });
+
+      strip.addEventListener('keydown', function (event) {
+        if (event.key !== 'Enter' && event.key !== ' ') return;
+        if (!canEnlarge(event.target)) return;
+        event.preventDefault();
+        zoomOpen(event.target);
+      });
+    }
 
     // The arrow keys glide the strip along by most of a screen.
     function step(direction) {

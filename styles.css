@@ -726,6 +726,49 @@ img.lead__media {
 
 .cycle__zone:focus-visible { outline-offset: -4px; }
 
+/* Enlarged view: an image from a strip, opened over the whole screen at its
+   full stored size. home.js moves the view as the mouse moves; on a touch
+   screen the image is dragged. See DESIGN.md, "Home page". */
+.viewer__slides img.slide__img:not(.cycle__img) { cursor: zoom-in; }
+
+.viewer__slides.is-dragging img.slide__img { cursor: grabbing; }
+
+.zoom {
+  position: fixed;
+  inset: 0;
+  z-index: 40;
+  background: var(--paper);
+  opacity: 0;
+  transition: opacity 200ms ease-out;
+}
+
+.zoom.is-open { opacity: 1; }
+
+/* The image is usually larger than the screen, so this scrolls. An image
+   smaller than the screen in one direction sits centred in that direction. */
+.zoom__pan {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  overflow: auto;
+  scrollbar-width: none;
+  cursor: zoom-out;
+}
+
+.zoom__pan::-webkit-scrollbar { display: none; }
+
+.zoom__img {
+  display: block;
+  max-width: none;
+  margin: auto;
+}
+
+.zoom__close {
+  position: absolute;
+  top: 10px;
+  right: var(--margin);
+}
+
 /* A second built project in the same strip starts after a wider gap:
    64px in all, counting the gutter that is already there */
 .slide--group { margin-left: calc(64px - var(--gutter)); }

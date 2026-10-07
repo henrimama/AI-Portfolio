@@ -69,6 +69,7 @@ The home page works like a small browser for the work. From top to bottom:
   - There are no buttons or links inside an open project: no arrows, no Close, no link to the project page. Nothing sits under the strip.
   - Click-through image: several photos of the same kind can share one place in the strip. They lie on top of one another in one frame, so only one shows at a time and each replaces the last in exactly the same place, at exactly the same size. The frame takes the proportions of the first photo and the same height as every other image; a photo whose proportions differ slightly is trimmed at the edges to fill it, never stretched. Clicking the right half of the image shows the next photo; clicking the left half shows the one before. After the last comes the first. The change is a 200ms fade. The title and description under the image change with each photo.
   - Where one strip holds more than one built project, the second project's first image starts after a wider gap: 64px instead of one gutter, so the two read as separate groups.
+  - Enlarged view: clicking an image in a project's strip opens it larger, over the whole screen, on a Paper background. The image is shown at its full stored size, usually larger than the screen. Moving the mouse moves the view: pointing at the left of the screen shows the left of the drawing, the bottom shows the bottom, and so on, so any part can be looked at in detail without dragging. On a touch screen the enlarged image is dragged with a finger instead. It opens and closes with a 200ms fade. Clicking the image again, the Close button (filter button style, top right) or Escape closes it. In the strip the pointer shows a magnifying glass over any image that can be enlarged. Grey placeholder boxes cannot be enlarged, and neither can a click-through image, where a click changes the photo.
   - A project with no images yet has no viewer. Clicking it only keeps its icon at the left and its name and description on show until it is clicked again.
   - Only one project is open at a time. Opening another closes the first. Clicking the open project again, or pressing Escape, closes it.
   - After a project opens, the page scrolls just enough to bring the whole viewer into view.
@@ -154,7 +155,7 @@ First person, plain and short. Say what the project is, what it does and why, th
 
 ## Five never rules
 1. Never add colour to the interface beyond this palette. Colour comes from the work.
-2. Never use pop-ups, cookie walls, auto-playing video or sound.
+2. Never use pop-ups, cookie walls, auto-playing video or sound. The enlarged view of an image is not a pop-up: it opens only when the visitor clicks an image.
 3. Never set text smaller than 15px or below 4.5:1 contrast with its background.
 4. Never add animation that does not help someone understand a project, that needs a library, or that slows the page down. The only exception is the intro screen, shown after log-in and when "Henri Maman" in the header is clicked.
 5. Never copy BIG's or anyone else's icons, logo, fonts, text or images.
