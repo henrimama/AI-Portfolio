@@ -636,6 +636,42 @@ img.lead__media {
 
 .slide .placeholder { display: grid; }
 
+/* Impact note: what Henri did on an image, above it at its top left. Never
+   wider than its image. See DESIGN.md, "Home page". */
+.slide__note {
+  width: 0;
+  min-width: min(100%, 100cqw);
+  margin-bottom: 8px;
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--graphite);
+}
+
+.slide__note-label {
+  font-weight: 500;
+  color: var(--ink);
+}
+
+/* Above phone size the note stays on one line, and its image is exactly as
+   wide as the note, at its own proportions. */
+@media (min-width: 601px) {
+  .slide--note .slide__note {
+    width: auto;
+    min-width: 0;
+    white-space: nowrap;
+  }
+
+  .slide--note .slide__media {
+    position: relative;
+    height: auto;
+  }
+
+  .slide--note .slide__img {
+    position: absolute;
+    inset: 0;
+  }
+}
+
 /* Under each image: its title on the left, its text box on the opposite
    side. Under a narrow image the text drops below the title. Under an image
    wider than the strip, both stay in view while the image is panned. */
