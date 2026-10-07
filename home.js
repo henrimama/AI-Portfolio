@@ -210,21 +210,37 @@
       var desc = slide.querySelector('.slide__desc');
       var at = 0;
 
+      var prev = slide.querySelector('.cycle__zone--prev');
+      var next = slide.querySelector('.cycle__zone--next');
+
       function show(index) {
-        // After the last photo comes the first, and the other way round.
-        at = (index + photos.length) % photos.length;
+        // The set stops at its ends: no going past the last or the first.
+        at = Math.max(0, Math.min(photos.length - 1, index));
         photos.forEach(function (photo, i) {
           photo.classList.toggle('is-current', i === at);
         });
         title.textContent = photos[at].dataset.title;
         if (desc) desc.textContent = photos[at].dataset.desc;
+
+        // At an end, the one way left to go takes over the whole image.
+        var first = at === 0;
+        var last = at === photos.length - 1;
+        var focused = document.activeElement;
+        slide.classList.toggle('is-first', first);
+        slide.classList.toggle('is-last', last);
+        prev.hidden = first;
+        next.hidden = last;
+        if (focused === prev && first) next.focus();
+        if (focused === next && last) prev.focus();
       }
 
+      show(0);
+
       // A click that ends a drag of the strip does not change the photo.
-      slide.querySelector('.cycle__zone--prev').addEventListener('click', function () {
+      prev.addEventListener('click', function () {
         if (!dragged) show(at - 1);
       });
-      slide.querySelector('.cycle__zone--next').addEventListener('click', function () {
+      next.addEventListener('click', function () {
         if (!dragged) show(at + 1);
       });
     });
@@ -342,12 +358,14 @@
   var pressedOutside = false;
 
   document.addEventListener('pointerdown', function (event) {
-    pressedOutside = !!openProject && !openProject.card.contains(event.target);
+    pressedOutside = !!openProject &&
+      (!openProject.card.contains(event.target) || event.target === openProject.card);
   });
 
   document.addEventListener('click', function (event) {
     if (!openProject || !pressedOutside) return;
-    if (openProject.card.contains(event.target)) return;
+    // Inside the open project, only the bare row beside its icon counts as empty.
+    if (openProject.card.contains(event.target) && event.target !== openProject.card) return;
     if (event.target.closest('a, button, input, select, textarea, label, .zoom')) return;
     openProject.close();
   });

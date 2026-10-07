@@ -21,6 +21,8 @@ index.html (home)
   - Under each drawing or render: its title on the left, and on the opposite side a text box with Henri's description of that image [ADD: a description for each drawing and render, from Henri].
   - Photos of physical models have a title only, with no description text box. In R+EC these are: site model, site model 2, section model 1, 2 and 3.
   - Every image in a project's strip can be enlarged: clicking it opens a larger view over the whole screen, and moving the mouse over it shows different parts of the drawing in more detail (see DESIGN.md, "Home page"). Placeholders and click-through images are the exceptions.
+  - A project's icon moves, and its name and description show, only when the icon image itself is hovered or clicked, not the space beside it (see DESIGN.md, "Home page").
+  - A click-through image stops at its ends: from the last image the only way is back, and from the first the only way is forward. The pointer is an arrow showing the direction a click will go (see DESIGN.md, "Home page").
   - Every click-through image (an image that changes to another in the same place when clicked) has a small text box above it that says "Click Me" (see DESIGN.md, "Home page").
   - Every word of every title starts with a capital letter (project names and image titles alike).
   - Only one project is open at a time. Clicking a different project closes the open one back to its original size and opens the new one the same way. Clicking the open project again, or the Escape key, closes it. Clicking any white space above or under the open project also closes it.

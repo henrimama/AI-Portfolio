@@ -520,7 +520,10 @@ img.lead__media {
    page grid. The icon's place in the grid is the left edge (columns 1 to 4),
    but at rest it is shifted to the centre of the page. On hover, on focus
    and while the project is open it glides back to the left, and the name and
-   description fade in on columns 6 to 11, centred to the icon's height. */
+   description fade in on columns 6 to 11, centred to the icon's height.
+   Only the icon itself reacts to the pointer: the row's empty space does
+   not. An unseen stand-in holds the icon's resting place in the centre, so
+   the icon does not slip out from under the pointer and glide straight back. */
 .field {
   margin-top: 40px;
   row-gap: var(--section);
@@ -538,14 +541,30 @@ img.lead__media {
   align-items: center;
 }
 
+.field .icon__link { pointer-events: none; }
+
+.field .icon__link::before {
+  content: "";
+  grid-column: 5 / span 4;
+  grid-row: 1;
+  aspect-ratio: 1;
+  pointer-events: auto;
+}
+
+/* While a project is open its icon sits at the left, and only it is clickable */
+.field .icon.is-open .icon__link::before { pointer-events: none; }
+
 .field .icon__box {
   grid-column: 1 / span 4;
+  grid-row: 1;
+  pointer-events: auto;
   transform: translateX(var(--icon-shift));
   transition: transform 400ms ease-out;
 }
 
 .field .icon__text {
   grid-column: 6 / span 6;
+  grid-row: 1;
   transition: opacity 400ms ease-out;
 }
 
@@ -789,7 +808,8 @@ img.lead__media {
   white-space: nowrap;
 }
 
-/* Click the left half for the photo before, the right half for the next */
+/* Click the left half for the photo before, the right half for the next.
+   The pointer is a single arrow showing which way the click will go. */
 .cycle__zone {
   position: absolute;
   top: 0;
@@ -800,13 +820,20 @@ img.lead__media {
 
 .cycle__zone--prev {
   left: 0;
-  cursor: w-resize;
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath d='M20 12H4M9 7l-5 5 5 5' fill='none' stroke='%23fff' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M20 12H4M9 7l-5 5 5 5' fill='none' stroke='%230a0a0a' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") 12 12, w-resize;
 }
 
 .cycle__zone--next {
   right: 0;
-  cursor: e-resize;
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath d='M4 12h16M15 7l5 5-5 5' fill='none' stroke='%23fff' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M4 12h16M15 7l5 5-5 5' fill='none' stroke='%230a0a0a' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") 12 12, e-resize;
 }
+
+/* On the first photo the only way is forward, on the last the only way is
+   back: that one zone covers the whole image. home.js sets these. */
+.cycle__zone[hidden] { display: none; }
+
+.slide--cycle.is-first .cycle__zone--next,
+.slide--cycle.is-last .cycle__zone--prev { width: 100%; }
 
 .cycle__zone:focus-visible { outline-offset: -4px; }
 
@@ -865,6 +892,8 @@ img.lead__media {
 @media (max-width: 1024px) {
   .field { --icon-shift: calc(50% + var(--gutter) / 2); }
 
+  .field .icon__link::before { grid-column: 3 / span 4; }
+
   .field .icon__text {
     grid-column: 5 / -1;
     margin-left: 16px;
@@ -891,7 +920,12 @@ img.lead__media {
   /* Phone: no room beside the icon, so it fills the width. The name and
      description appear directly below it only while the project is open,
      and take up no room otherwise. */
-  .field .icon__link { display: block; }
+  .field .icon__link {
+    display: block;
+    pointer-events: auto;
+  }
+
+  .field .icon__link::before { content: none; }
 
   /* The icon already fills the width, so it never moves */
   .field .icon .icon__box,
