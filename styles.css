@@ -940,6 +940,10 @@ img.lead__media {
    64px in all, counting the gutter that is already there */
 .slide--group { margin-left: calc(64px - var(--gutter)); }
 
+/* A strip whose stacked pairs are taller than its other images: everything
+   is centred top to bottom, so the pairs and the images share a middle line. */
+.viewer__slides--centred { align-items: center; }
+
 /* Slightly more space between pairs than between other images */
 .slide--pair + .slide--pair { margin-left: 16px; }
 
