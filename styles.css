@@ -719,6 +719,32 @@ img.lead__media {
   margin: 0;
 }
 
+/* Step diagram: an image made of several separate drawings. Each part is
+   an unseen region over the image. While the pointer is over one, the
+   others are veiled in Paper at 50%, which fades them. home.js changes the
+   title and description to match. See DESIGN.md, "Home page". */
+.slide__media:has(.parts) { position: relative; }
+
+.parts {
+  position: absolute;
+  inset: 0;
+}
+
+.part {
+  position: absolute;
+  inset: 0;
+  background: var(--paper);
+  opacity: 0;
+  cursor: zoom-in;
+  transition: opacity 200ms ease-out;
+}
+
+.part:focus { outline: none; }
+
+.parts.is-active .part:not(.is-on) { opacity: 0.5; }
+
+.viewer__slides.is-dragging .part { cursor: grabbing; }
+
 /* Under each image: its title on the left, its text box on the opposite
    side. Under a narrow image the text drops below the title. Under an image
    wider than the strip, both stay in view while the image is panned. */

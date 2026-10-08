@@ -245,6 +245,34 @@
       });
     });
 
+    // Step diagrams: while the pointer (or keyboard focus) is on one part,
+    // the others fade and the caption shows that part's title and
+    // description. Off the image, the caption returns to the image's own.
+    if (viewer) viewer.querySelectorAll('.parts').forEach(function (layer) {
+      var slide = layer.closest('.slide');
+      var title = slide.querySelector('.slide__title');
+      var desc = slide.querySelector('.slide__desc');
+      var ownTitle = title.textContent;
+      var ownDesc = desc ? desc.textContent : '';
+      var parts = layer.querySelectorAll('.part');
+
+      function show(part) {
+        parts.forEach(function (other) { other.classList.toggle('is-on', other === part); });
+        layer.classList.toggle('is-active', !!part);
+        title.textContent = part ? part.dataset.title : ownTitle;
+        if (desc) desc.textContent = part ? part.dataset.desc : ownDesc;
+      }
+
+      parts.forEach(function (part) {
+        part.addEventListener('pointerenter', function (event) {
+          if (event.pointerType === 'mouse') show(part);
+        });
+        part.addEventListener('focus', function () { show(part); });
+        part.addEventListener('blur', function () { show(null); });
+      });
+      layer.addEventListener('pointerleave', function () { show(null); });
+    });
+
     // Any real image in the strip can be enlarged by clicking it, or with
     // Enter when it has keyboard focus. Not a placeholder, and not a
     // click-through image, where a click changes the photo instead.
@@ -261,6 +289,9 @@
 
       strip.addEventListener('click', function (event) {
         var img = event.target.closest('.slide__img');
+        // A click on a part of a step diagram enlarges the image beneath it.
+        var part = event.target.closest('.part');
+        if (part) img = part.closest('.slide__media').querySelector('.slide__img');
         // A click that ends a drag of the strip does not enlarge anything.
         if (dragged || !canEnlarge(img)) return;
         zoomOpen(img, event.clientX, event.clientY);
