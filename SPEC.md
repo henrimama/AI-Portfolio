@@ -25,6 +25,7 @@ index.html (home)
   - Where drawings are stacked in pairs, the titles and descriptions of the upper drawings line up with each other from pair to pair, and so do those of the lower drawings (see DESIGN.md, "Home page").
   - A click-through image stops at its ends: from the last image the only way is back, and from the first the only way is forward. The pointer is a small chevron (two diagonal strokes, no line) showing the direction a click will go (see DESIGN.md, "Home page").
   - Every click-through image (an image that changes to another in the same place when clicked) has a small text box above it that says "Click Me" (see DESIGN.md, "Home page").
+  - A thin bar under the header of every page (below "Henri Maman", About, Contact and Log out) shows how far down the page the visitor has scrolled (see DESIGN.md, "Movement").
   - Every word of every title starts with a capital letter (project names and image titles alike).
   - Only one project is open at a time. Clicking a different project closes the open one back to its original size and opens the new one the same way. Clicking the open project again, or the Escape key, closes it. Clicking any white space above or under the open project also closes it.
   - It works the same for all six projects. A project with no images yet shows grey [ADD: image of ...] boxes in the viewer, except Building Ecologies, which has no viewer at all for now: no images and no captions open beneath it.

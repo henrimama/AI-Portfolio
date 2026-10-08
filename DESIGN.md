@@ -117,6 +117,7 @@ Expressive but light. Plain CSS and a small amount of plain JavaScript. No anima
 - Icons react on hover and tap, as above.
 - Images fade in and rise 24px into place when they first enter the screen (400ms, ease-out), once only.
 - Full-bleed images move slightly slower than the scroll, never more than 40px of offset.
+- Progress bar: a thin Ink line, 2px high, runs along the bottom edge of the header, under "Henri Maman" and the menu links, on every page with a header. It sits on the header's hairline, so the unfilled part of the line stays a faint grey. It starts at the left and grows to the right as the page is scrolled down, reaching the full width at the bottom of the page, so a visitor can see how far down they are. It follows the scroll directly, with no easing. On a page too short to scroll it does not show. It stays on when a device is set to reduce motion, because it only moves when the visitor scrolls.
 - The phone menu overlay fades in over 250ms.
 - On the home page, projects outside the chosen filter fade to 20% opacity over 400ms. This shows which projects belong to each type of work. The move to the top of the column is immediate, with no animation.
 - On the home page, a project's viewer opens over 400ms (ease-out): it grows to its full height while fading in and scaling up from 96%. It closes the same way in reverse. The arrow keys glide the strip of images sideways.

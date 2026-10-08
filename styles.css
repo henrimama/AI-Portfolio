@@ -99,6 +99,21 @@ button {
 
 .bar.is-scrolled { border-bottom-color: var(--hairline); }
 
+/* Progress bar: a thin line along the bottom edge of the bar, over its
+   hairline, that grows from the left as the page is scrolled down.
+   motion.js adds it and sets its length. */
+.bar__progress {
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--ink);
+  transform: scaleX(0);
+  transform-origin: left;
+  pointer-events: none;
+}
+
 .bar__inner {
   max-width: 1440px;
   margin-inline: auto;

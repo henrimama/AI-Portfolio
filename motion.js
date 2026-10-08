@@ -6,11 +6,21 @@
   var media = document.querySelectorAll('.lead__media');
   var ticking = false;
 
-  // Hairline under the bar once scrolled, and full-bleed images
-  // moving slightly slower than the scroll (never more than 40px).
+  // Progress bar: a thin line along the bottom of the bar that grows from the
+  // left as the page is scrolled down, full width at the bottom of the page.
+  var progressBar = document.createElement('div');
+  progressBar.className = 'bar__progress';
+  progressBar.setAttribute('aria-hidden', 'true');
+  bar.appendChild(progressBar);
+
+  // Hairline under the bar once scrolled, the progress bar, and full-bleed
+  // images moving slightly slower than the scroll (never more than 40px).
   function update() {
     ticking = false;
     bar.classList.toggle('is-scrolled', window.scrollY > 0);
+    var room = document.documentElement.scrollHeight - window.innerHeight;
+    var scrolled = room > 0 ? Math.min(1, Math.max(0, window.scrollY / room)) : 0;
+    progressBar.style.transform = 'scaleX(' + scrolled.toFixed(4) + ')';
     if (reduce) return;
     var vh = window.innerHeight;
     media.forEach(function (el) {
@@ -29,6 +39,8 @@
 
   window.addEventListener('scroll', onScroll, { passive: true });
   window.addEventListener('resize', onScroll);
+  // The page also changes height without a scroll, as when a project opens.
+  if ('ResizeObserver' in window) new ResizeObserver(onScroll).observe(document.body);
   update();
 
   // Images fade in and rise into place the first time they enter the screen.
