@@ -769,6 +769,10 @@ img.lead__media {
   height: auto;
 }
 
+/* Each drawing sits at the bottom of its room, directly above its caption,
+   so the captions of neighbouring pairs line up. */
+.slide--pair .slide__img { object-position: center bottom; }
+
 /* Click-through image: several photos share one place in the strip, lying
    on top of one another in the same frame, so the image changes in exactly
    the same place and at exactly the same size. Only the current one shows.
@@ -809,7 +813,7 @@ img.lead__media {
 }
 
 /* Click the left half for the photo before, the right half for the next.
-   The pointer is a single arrow showing which way the click will go. */
+   The pointer is a small chevron showing which way the click will go. */
 .cycle__zone {
   position: absolute;
   top: 0;
@@ -820,12 +824,12 @@ img.lead__media {
 
 .cycle__zone--prev {
   left: 0;
-  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath d='M20 12H4M9 7l-5 5 5 5' fill='none' stroke='%23fff' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M20 12H4M9 7l-5 5 5 5' fill='none' stroke='%230a0a0a' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") 12 12, w-resize;
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cpath d='M12 5l-5 5 5 5' fill='none' stroke='%23fff' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M12 5l-5 5 5 5' fill='none' stroke='%230a0a0a' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") 10 10, w-resize;
 }
 
 .cycle__zone--next {
   right: 0;
-  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath d='M4 12h16M15 7l5 5-5 5' fill='none' stroke='%23fff' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M4 12h16M15 7l5 5-5 5' fill='none' stroke='%230a0a0a' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") 12 12, e-resize;
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cpath d='M8 5l5 5-5 5' fill='none' stroke='%23fff' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M8 5l5 5-5 5' fill='none' stroke='%230a0a0a' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") 10 10, e-resize;
 }
 
 /* On the first photo the only way is forward, on the last the only way is
