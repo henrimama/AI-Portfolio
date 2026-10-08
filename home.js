@@ -263,9 +263,37 @@
         if (desc) desc.textContent = part ? part.dataset.desc : ownDesc;
       }
 
+      // The caption stays on one line (styles.css). On a small window the
+      // longest part's line can be wider than the image, so the first time
+      // the pointer arrives, give the slide room for it once: after that
+      // nothing beside it moves as the pointer goes from part to part.
+      var caption = slide.querySelector('.slide__text');
+      var sized = false;
+
+      function makeRoom() {
+        if (sized) return;
+        sized = true;
+        var widest = 0;
+        parts.forEach(function (part) {
+          title.textContent = part.dataset.title;
+          if (desc) desc.textContent = part.dataset.desc;
+          widest = Math.max(widest, caption.scrollWidth);
+        });
+        title.textContent = ownTitle;
+        if (desc) desc.textContent = ownDesc;
+        if (widest > slide.clientWidth) slide.style.minWidth = widest + 'px';
+      }
+
+      window.addEventListener('resize', function () {
+        sized = false;
+        slide.style.minWidth = '';
+      });
+
       parts.forEach(function (part) {
         part.addEventListener('pointerenter', function (event) {
-          if (event.pointerType === 'mouse') show(part);
+          if (event.pointerType !== 'mouse') return;
+          makeRoom();
+          show(part);
         });
         part.addEventListener('focus', function () { show(part); });
         part.addEventListener('blur', function () { show(null); });

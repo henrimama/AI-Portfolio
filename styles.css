@@ -745,6 +745,17 @@ img.lead__media {
 
 .viewer__slides.is-dragging .part { cursor: grabbing; }
 
+/* Under a step diagram the caption stays on one line, so it does not jump
+   as the pointer moves between parts. If the line is longer than the image
+   is wide, it runs past the image's right edge. */
+@media (min-width: 601px) {
+  .slide:has(.parts) .slide__text {
+    flex-wrap: nowrap;
+    width: max-content;
+    white-space: nowrap;
+  }
+}
+
 /* Under each image: its title on the left, its text box on the opposite
    side. Under a narrow image the text drops below the title. Under an image
    wider than the strip, both stay in view while the image is panned. */
